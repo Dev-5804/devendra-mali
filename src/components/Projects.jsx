@@ -14,9 +14,9 @@ const Projects = () => {
   }))
 
   return (
-    <section id="projects" className="min-h-screen px-6 md:px-12 py-20 relative bg-white overflow-hidden">
+    <section id="projects" className="min-h-screen px-6 md:px-12 py-20 relative bg-white overflow-hidden" aria-label="Portfolio projects section">
       {/* Large Background Text */}
-      <div className="absolute top-20 right-0 text-[200px] md:text-[300px] font-black opacity-[0.02] leading-none pointer-events-none">
+      <div className="absolute top-20 right-0 text-[200px] md:text-[300px] font-black opacity-[0.02] leading-none pointer-events-none" aria-hidden="true">
         WORK
       </div>
 
@@ -53,6 +53,7 @@ const Projects = () => {
               className={`group relative overflow-hidden cursor-pointer ${
                 project.size === 'large' ? 'lg:col-span-2 lg:row-span-2' : 'lg:col-span-2'
               }`}
+              aria-label={`View case study for ${project.title}`}
             >
               {/* Project Card */}
               <div className={`relative h-full border-2 border-black transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl ${
@@ -60,7 +61,7 @@ const Projects = () => {
               }`}>
                 
                 {/* Background Pattern */}
-                <div className="absolute inset-0 opacity-5">
+                <div className="absolute inset-0 opacity-5" aria-hidden="true">
                   <div className="absolute inset-0" style={{
                     backgroundImage: `repeating-linear-gradient(45deg, black 0, black 1px, transparent 0, transparent 50%)`,
                     backgroundSize: '10px 10px'
@@ -133,6 +134,7 @@ const Projects = () => {
           <button 
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="group relative px-10 py-5 bg-black text-white text-sm uppercase tracking-widest font-bold overflow-hidden cursor-pointer"
+            aria-label="Start a new project with me"
           >
             <span className="relative z-10">Start a Project</span>
             <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
@@ -144,7 +146,7 @@ const Projects = () => {
       </div>
 
       {/* Decorative Elements */}
-      <div className="absolute bottom-0 left-0 w-40 h-40 border-t-2 border-l-2 border-black opacity-10"></div>
+      <div className="absolute bottom-0 left-0 w-40 h-40 border-t-2 border-l-2 border-black opacity-10" aria-hidden="true"></div>
     </section>
   )
 }

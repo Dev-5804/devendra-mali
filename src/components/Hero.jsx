@@ -8,9 +8,9 @@ const Hero = () => {
   }, [])
 
   return (
-    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden" aria-label="Hero section">
       {/* Background Accent */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-black opacity-5"></div>
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-black opacity-5" aria-hidden="true"></div>
       
       <div className="container mx-auto px-6 md:px-12 lg:px-20 relative z-10">
         <div className="max-w-6xl">

@@ -1,16 +1,37 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, Link, useNavigate } from 'react-router-dom'
 import { getProjectById, getNextProject } from '../data/projectsData'
+import PageLoader from '../components/PageLoader'
+import BackToTop from '../components/BackToTop'
+import LazyImage from '../components/LazyImage'
+import { trackProjectView, trackExternalLink } from '../utils/analytics'
 
 const CaseStudy = () => {
     const { projectId } = useParams()
     const navigate = useNavigate()
+    const [isLoading, setIsLoading] = useState(true)
     const project = getProjectById(projectId)
     const nextProject = project ? getNextProject(projectId) : null
 
     useEffect(() => {
         window.scrollTo(0, 0)
-    }, [projectId])
+        // Simulate loading delay for better UX
+        setIsLoading(true)
+        const timer = setTimeout(() => {
+            setIsLoading(false)
+        }, 300)
+        
+        // Track project view
+        if (project) {
+            trackProjectView(project.title)
+        }
+        
+        return () => clearTimeout(timer)
+    }, [projectId, project])
+
+    if (isLoading) {
+        return <PageLoader />
+    }
 
     if (!project) {
         return (
@@ -31,12 +52,14 @@ const CaseStudy = () => {
 
     return (
         <div className="min-h-screen bg-white text-black">
+            <BackToTop />
             {/* Navigation Header */}
-            <header className="border-b-2 border-black px-6 md:px-12 py-8 sticky top-0 bg-white z-50">
-                <div className="max-w-7xl mx-auto flex items-center justify-between">
+            <header className="border-b-2 border-black px-6 md:px-12 py-8 sticky top-0 bg-white z-50" role="banner">
+                <nav className="max-w-7xl mx-auto flex items-center justify-between" aria-label="Case study navigation">
                     <button
                         onClick={() => navigate('/')}
                         className="text-xl md:text-2xl font-black hover:translate-x-[-4px] transition-transform duration-300"
+                        aria-label="Return to homepage"
                     >
                         ← DEVENDRA MALI
                     </button>
@@ -44,15 +67,16 @@ const CaseStudy = () => {
                         <button
                             onClick={() => navigate(-1)}
                             className="hover:underline"
+                            aria-label="Go back to previous page"
                         >
                             Back
                         </button>
                     </div>
-                </div>
+                </nav>
             </header>
 
             {/* Hero Section */}
-            <section className="px-6 md:px-12 py-20 border-b-2 border-black">
+            <section className="px-6 md:px-12 py-20 border-b-2 border-black" aria-label="Project overview">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid lg:grid-cols-5 gap-12 mb-12">
                         <div className="lg:col-span-3">
@@ -93,6 +117,7 @@ const CaseStudy = () => {
                                     href={project.links.live}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    onClick={() => trackExternalLink('Live Site', project.links.live)}
                                     className="inline-block px-8 py-4 bg-black text-white text-sm uppercase tracking-widest font-bold hover:scale-105 transition-transform duration-300"
                                 >
                                     View Live Site →
@@ -103,9 +128,9 @@ const CaseStudy = () => {
 
                     {/* Hero Image */}
                     <div className="aspect-[16/9] bg-gray-100 border-2 border-black overflow-hidden flex items-center justify-center">
-                        <img 
+                        <LazyImage 
                             src={project.heroImage} 
-                            alt={project.title}
+                            alt={`${project.title} - ${project.subtitle}`}
                             className="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-500"
                         />
                     </div>
@@ -223,7 +248,7 @@ const CaseStudy = () => {
                                 <div key={index} className="group">
                                     <div className="border-2 border-black overflow-hidden bg-white">
                                         <div className="aspect-[16/9] overflow-hidden flex items-center justify-center bg-gray-50">
-                                            <img 
+                                            <LazyImage 
                                                 src={image.url} 
                                                 alt={image.caption}
                                                 className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
@@ -281,6 +306,7 @@ const CaseStudy = () => {
                                     href={project.links.live}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    onClick={() => trackExternalLink('Live Website', project.links.live)}
                                     className="px-8 py-4 bg-black text-white text-sm uppercase tracking-widest font-bold hover:scale-105 transition-transform duration-300"
                                 >
                                     Live Website →
@@ -292,6 +318,7 @@ const CaseStudy = () => {
                                     href={project.links.github}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    onClick={() => trackExternalLink('GitHub', project.links.github)}
                                     className="px-8 py-4 border-2 border-black text-black text-sm uppercase tracking-widest font-bold hover:bg-black hover:text-white transition-all duration-300"
                                 >
                                     GitHub Repository →
@@ -303,6 +330,7 @@ const CaseStudy = () => {
                                     href={project.links.demo}
                                     target="_blank"
                                     rel="noopener noreferrer"
+                                    onClick={() => trackExternalLink('Demo', project.links.demo)}
                                     className="px-8 py-4 border-2 border-black text-black text-sm uppercase tracking-widest font-bold hover:bg-black hover:text-white transition-all duration-300"
                                 >
                                     View Demo →

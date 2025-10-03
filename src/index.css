@@ -41,3 +41,130 @@ html {
 .animate-bounce {
   animation: bounce 2s infinite;
 }
+
+/* Fade-in animation */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Image loading skeleton */
+.image-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus visible states */
+*:focus-visible {
+  outline: 3px solid #000000;
+  outline-offset: 3px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #000000;
+  outline-offset: 3px;
+}
+
+/* High contrast focus for light backgrounds */
+.bg-white *:focus-visible,
+.bg-gray-50 *:focus-visible {
+  outline: 3px solid #000000;
+  outline-offset: 3px;
+}
+
+/* High contrast focus for dark backgrounds */
+.bg-black *:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+/* Reduced motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Performance optimizations */
+img {
+  content-visibility: auto;
+}
+
+/* Prevent layout shift */
+img[loading="lazy"] {
+  min-height: 200px;
+}
+
+/* Optimize font rendering */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* GPU acceleration for animations */
+.animate-spin,
+.animate-fade-in,
+.animate-bounce {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Smooth scrolling with reduced motion support */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

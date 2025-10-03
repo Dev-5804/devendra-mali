@@ -11,6 +11,12 @@ A modern, bold, and minimalist portfolio website showcasing my projects and skil
 - **Smooth Animations** - Staggered fade-in effects and interactive hover transitions
 - **Responsive Design** - Optimized for desktop, tablet, and mobile devices
 - **Contact Form Integration** - Working contact form with EmailJS
+- **Google Analytics** - GA4 event tracking for user insights
+- **SEO Optimized** - Complete meta tags, sitemap, and robots.txt
+- **Accessible** - WCAG 2.1 compliant with keyboard navigation
+- **Performance Optimized** - Code splitting, lazy loading, and minification
+- **404 Error Page** - Custom error page for better UX
+- **Back to Top Button** - Easy navigation on long pages
 - **Fast Performance** - Optimized loading times and smooth navigation
 
 ## 🛠️ Tech Stack
@@ -20,6 +26,7 @@ A modern, bold, and minimalist portfolio website showcasing my projects and skil
 - **Styling:** Tailwind CSS 4.1.13
 - **Build Tool:** Vite 7.1.2
 - **Contact Forms:** EmailJS
+- **Analytics:** Google Analytics GA4
 - **Code Quality:** ESLint
 
 ## 📂 Project Structure
@@ -68,17 +75,29 @@ cd devendra-mali
 npm install
 ```
 
-3. Set up EmailJS (Optional - for contact form)
+3. Create `.env` file in the root directory
+```bash
+VITE_GA_MEASUREMENT_ID=your_google_analytics_id
+VITE_EMAILJS_SERVICE_ID=your_service_id
+VITE_EMAILJS_TEMPLATE_ID=your_template_id
+VITE_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+4. Set up EmailJS
    - Create an account at [EmailJS](https://www.emailjs.com/)
    - Get your Service ID, Template ID, and Public Key
-   - Update the credentials in `src/components/Contact.jsx`
+   - Add them to your `.env` file
 
-4. Start the development server
+5. Set up Google Analytics (Optional)
+   - Create a GA4 property at [Google Analytics](https://analytics.google.com/)
+   - Add your Measurement ID to `.env`
+
+6. Start the development server
 ```bash
 npm run dev
 ```
 
-5. Open your browser and visit `http://localhost:5173`
+7. Open your browser and visit `http://localhost:5173`
 
 ## 📜 Available Scripts
 
@@ -86,6 +105,7 @@ npm run dev
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
 - `npm run lint` - Run ESLint
+- `npm run generate-sitemap` - Generate sitemap.xml from project data
 
 ## 🎨 Sections
 

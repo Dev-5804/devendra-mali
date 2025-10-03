@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
+import { trackContactFormSubmit, trackSocialClick, trackExternalLink } from '../utils/analytics'
 
 const Contact = () => {
   const formRef = useRef()
@@ -18,11 +19,11 @@ const Contact = () => {
       value: 'dev.endra.mali.5804@gmail.com',
       link: 'mailto:dev.endra.mali.5804@gmail.com'
     },
-    {
-      label: 'Phone',
-      value: '+91 88569 72156',
-      link: 'tel:+918856972156'
-    },
+    // {
+    //   label: 'Phone',
+    //   value: '+91 88569 72156',
+    //   link: 'tel:+918856972156'
+    // },
     {
       label: 'Location',
       value: 'Pune, Maharashtra, India',
@@ -34,7 +35,8 @@ const Contact = () => {
     { name: 'GitHub', url: 'https://github.com/Dev-5804/', icon: 'GH' },
     { name: 'LinkedIn', url: 'https://www.linkedin.com/in/dev-endra-mali/', icon: 'LI' },
     { name: 'Twitter/X', url: 'https://x.com/Devendr98554068', icon: 'TW' },
-    { name: 'Instagram', url: 'https://www.instagram.com/_devendra_mali/', icon: 'IG' }
+    { name: 'Instagram', url: 'https://www.instagram.com/_devendra_mali/', icon: 'IG' },
+    { name: 'Fiverr', url: 'https://www.fiverr.com/s/gD30DEX', icon: 'FV' },
   ]
 
   const handleChange = (e) => {
@@ -50,17 +52,19 @@ const Contact = () => {
     setSubmitStatus(null)
 
     try {
-      // Replace these with your EmailJS credentials
       const result = await emailjs.sendForm(
-        'service_jgjewpm',      // Replace with your EmailJS Service ID
-        'template_vq5kze5',     // Replace with your EmailJS Template ID
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         formRef.current,
-        'qsOb4tJODebu4y5qc'       // Replace with your EmailJS Public Key
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
 
       console.log('Email sent successfully:', result.text)
       setSubmitStatus('success')
       setFormData({ name: '', email: '', message: '' })
+      
+      // Track successful form submission
+      trackContactFormSubmit()
       
       // Reset success message after 5 seconds
       setTimeout(() => setSubmitStatus(null), 5000)
@@ -76,11 +80,11 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="relative bg-white text-black overflow-hidden">
+    <section id="contact" className="relative bg-white text-black overflow-hidden" aria-label="Contact section">
       {/* Main Contact Section */}
       <div className="min-h-screen flex items-center px-6 md:px-12 py-20 relative">
         {/* Large Background Text */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[150px] md:text-[250px] lg:text-[350px] font-black opacity-[0.02] leading-none pointer-events-none whitespace-nowrap">
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[150px] md:text-[250px] lg:text-[350px] font-black opacity-[0.02] leading-none pointer-events-none whitespace-nowrap" aria-hidden="true">
           CONTACT
         </div>
 
@@ -117,6 +121,7 @@ const Contact = () => {
                     {info.link ? (
                       <a 
                         href={info.link}
+                        onClick={() => info.label === 'Email' && trackExternalLink('Email', info.value)}
                         className="text-xl md:text-2xl font-bold inline-block relative hover:translate-x-2 transition-transform duration-300"
                       >
                         {info.value}
@@ -133,8 +138,8 @@ const Contact = () => {
             {/* Right Column - Contact Form */}
             <div className="bg-black text-white p-8 md:p-12 relative">
               {/* Corner Decoration */}
-              <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-white opacity-30"></div>
-              <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-white opacity-30"></div>
+              <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-white opacity-30" aria-hidden="true"></div>
+              <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-white opacity-30" aria-hidden="true"></div>
 
               <h3 className="text-3xl md:text-4xl font-black mb-8">
                 Send a Message
@@ -144,9 +149,9 @@ const Contact = () => {
               {submitStatus && (
                 <>
                   {submitStatus === 'success' && (
-                    <div className="mb-6 p-4 border-2 border-white bg-white bg-opacity-10 animate-fade-in">
-                      <p className="text-black font-bold">✓ Message sent successfully!</p>
-                      <p className="text-sm opacity-80 mt-1 text-black">I'll get back to you soon.</p>
+                    <div className="mb-6 p-4 border-2 border-white bg-white text-black animate-fade-in">
+                      <p className="font-bold">✓ Message sent successfully!</p>
+                      <p className="text-sm opacity-80 mt-1">I'll get back to you soon.</p>
                     </div>
                   )}
 
@@ -159,13 +164,14 @@ const Contact = () => {
                 </>
               )}
 
-              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-6" aria-label="Contact form">
                 <div>
-                  <label className="block text-sm uppercase tracking-wider mb-2 opacity-80">
+                  <label htmlFor="contact-name" className="block text-sm uppercase tracking-wider mb-2 opacity-80">
                     Your Name
                   </label>
                   <input 
                     type="text"
+                    id="contact-name"
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
@@ -173,15 +179,17 @@ const Contact = () => {
                     disabled={isSubmitting}
                     className="w-full bg-transparent border-b-2 border-white py-3 focus:outline-none focus:border-opacity-100 transition-all disabled:opacity-50"
                     placeholder="John Doe"
+                    aria-required="true"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm uppercase tracking-wider mb-2 opacity-80">
+                  <label htmlFor="contact-email" className="block text-sm uppercase tracking-wider mb-2 opacity-80">
                     Email Address
                   </label>
                   <input 
                     type="email"
+                    id="contact-email"
                     name="email"
                     value={formData.email}
                     onChange={handleChange}
@@ -189,15 +197,17 @@ const Contact = () => {
                     disabled={isSubmitting}
                     className="w-full bg-transparent border-b-2 border-white py-3 focus:outline-none focus:border-opacity-100 transition-all disabled:opacity-50"
                     placeholder="john@example.com"
+                    aria-required="true"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-sm uppercase tracking-wider mb-2 opacity-80">
+                  <label htmlFor="contact-message" className="block text-sm uppercase tracking-wider mb-2 opacity-80">
                     Your Message
                   </label>
                   <textarea 
                     rows="4"
+                    id="contact-message"
                     name="message"
                     value={formData.message}
                     onChange={handleChange}
@@ -205,6 +215,7 @@ const Contact = () => {
                     disabled={isSubmitting}
                     className="w-full bg-transparent border-b-2 border-white py-3 focus:outline-none focus:border-opacity-100 transition-all resize-none disabled:opacity-50"
                     placeholder="Tell me about your project..."
+                    aria-required="true"
                   />
                 </div>
 
@@ -213,13 +224,20 @@ const Contact = () => {
                   disabled={isSubmitting}
                   className="group w-full py-4 bg-white text-black text-sm uppercase tracking-widest font-bold relative overflow-hidden hover:scale-[1.02] transition-transform duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
-                  <span className="relative z-10">
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
-                  </span>
-                  <div className="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
-                  <span className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-bold z-10">
-                    {isSubmitting ? 'Sending...' : 'Send Message →'}
-                  </span>
+                  {isSubmitting ? (
+                    <span className="relative z-10 flex items-center justify-center gap-3">
+                      <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                      Sending...
+                    </span>
+                  ) : (
+                    <>
+                      <span className="relative z-10">Send Message</span>
+                      <div className="absolute inset-0 bg-black transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></div>
+                      <span className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-bold z-10">
+                        Send Message →
+                      </span>
+                    </>
+                  )}
                 </button>
               </form>
             </div>
@@ -227,11 +245,11 @@ const Contact = () => {
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute top-20 right-20 w-40 h-40 border border-black opacity-5 hidden lg:block"></div>
+        <div className="absolute top-20 right-20 w-40 h-40 border border-black opacity-5 hidden lg:block" aria-hidden="true"></div>
       </div>
 
       {/* Footer Section */}
-      <footer className="border-t-2 border-black px-6 md:px-12 py-12">
+      <footer className="border-t-2 border-black px-6 md:px-12 py-12" role="contentinfo">
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-3 gap-12 mb-12">
             {/* Brand */}

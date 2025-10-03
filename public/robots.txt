@@ -1,0 +1,19 @@
+# robots.txt for devendramali.tech
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Disallow admin or private areas (if any in future)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://devendramali.tech/sitemap.xml
+
+# Crawl-delay (optional, remove if not needed)
+# Crawl-delay: 10
+
+# Block specific bots (optional)
+# User-agent: BadBot
+# Disallow: /

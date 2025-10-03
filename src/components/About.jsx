@@ -1,4 +1,5 @@
 import React from 'react'
+import { trackResumeView } from '../utils/analytics'
 
 const About = () => {
   const skills = [
@@ -30,9 +31,9 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="min-h-screen flex items-center px-6 md:px-12 py-20 relative bg-white">
+    <section id="about" className="min-h-screen flex items-center px-6 md:px-12 py-20 relative bg-white" aria-label="About me section">
       {/* Vertical Text Accent */}
-      <div className="hidden lg:block absolute left-12 top-1/2 transform -translate-y-1/2 -rotate-90 origin-center">
+      <div className="hidden lg:block absolute left-12 top-1/2 transform -translate-y-1/2 -rotate-90 origin-center" aria-hidden="true">
         <span className="text-8xl font-black opacity-5 tracking-wider">ABOUT</span>
       </div>
 
@@ -101,7 +102,10 @@ const About = () => {
 
             {/* Call to Action */}
             <div className="pt-8">
-              <button className="group px-8 py-4 bg-black text-white text-sm uppercase tracking-widest font-medium relative overflow-hidden transition-all duration-300 hover:scale-105 w-full md:w-auto">
+              <button 
+                onClick={() => window.open('/pdf/Devendra_Mali_Resume.pdf', '_blank')}
+                className="group px-8 py-4 bg-black text-white text-sm uppercase tracking-widest font-medium relative overflow-hidden transition-all duration-300 hover:scale-105 w-full md:w-auto cursor-pointer"
+              >
                 <span className="relative z-10">View My Resume</span>
                 <div className="absolute inset-0 bg-white transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
                 <span className="absolute inset-0 flex items-center justify-center text-black opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-medium z-10">
