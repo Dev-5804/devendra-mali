@@ -2,7 +2,7 @@
 
 A modern, bold, and minimalist portfolio website showcasing my projects and skills as a Full Stack Developer and Information Technology student.
 
-![Portfolio Website Screenshot](./public/assets/portfolio-screenshot.png)
+![Portfolio Website Screenshot](./public/assets/portfolio.webp)
 
 ## 🌟 Features
 
