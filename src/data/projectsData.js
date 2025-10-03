@@ -6,7 +6,7 @@ export const projectsData = [
     subtitle: 'Full Stack Web Application',
     category: 'Full Stack',
     year: '2025',
-    duration: '1 months',
+    duration: '1 month',
     role: 'Frontend Developer',
 
     // Hero Section
@@ -118,8 +118,8 @@ export const projectsData = [
     subtitle: 'Photographer Portfolio Website',
     category: 'Full Stack',
     year: '2025',
-    duration: '1 months',
-    role: 'Full Stack Developer',
+    duration: '1 month',
+    role: 'Frontend Developer',
 
     heroImage: '/assets/Mframingpixel/Mframingpixel-hero.webp',
     overview: 'Developed mframingpixel.com, a portfolio website for an interior design photographer, integrated with a headless CMS for easy content management and updates.',
@@ -311,8 +311,8 @@ export const projectsData = [
     subtitle: 'Educational Platform Website',
     category: 'Web Development',
     year: '2025',
-    duration: '2 months',
-    role: 'Website Developer',
+    duration: '1 month',
+    role: 'Frontend Developer',
 
     heroImage: '/assets/Menteronics/menteronics-hero.webp',
     overview: 'Developed menteronics.com, an informative website for a startup offering offline courses, providing resources and information, focused on offline learning experiences.',
