@@ -35,7 +35,7 @@ const CaseStudy = () => {
             <header className="border-b-2 border-black px-6 md:px-12 py-8 sticky top-0 bg-white z-50">
                 <div className="max-w-7xl mx-auto flex items-center justify-between">
                     <button
-                        onClick={() => navigate(-1)}
+                        onClick={() => navigate('/')}
                         className="text-xl md:text-2xl font-black hover:translate-x-[-4px] transition-transform duration-300"
                     >
                         ← DEVENDRA MALI
@@ -101,9 +101,13 @@ const CaseStudy = () => {
                         </div>
                     </div>
 
-                    {/* Hero Image Placeholder */}
-                    <div className="aspect-[16/9] bg-gray-100 border-2 border-black flex items-center justify-center">
-                        <span className="text-6xl font-black opacity-10">PROJECT IMAGE</span>
+                    {/* Hero Image */}
+                    <div className="aspect-[16/9] bg-gray-100 border-2 border-black overflow-hidden flex items-center justify-center">
+                        <img 
+                            src={project.heroImage} 
+                            alt={project.title}
+                            className="w-full h-full object-contain grayscale hover:grayscale-0 transition-all duration-500"
+                        />
                     </div>
                 </div>
             </section>
@@ -207,6 +211,34 @@ const CaseStudy = () => {
                     </div>
                 </div>
             </section>
+
+            {/* Project Gallery Section */}
+            {project.images && project.images.length > 0 && (
+                <section className="px-6 md:px-12 py-20 border-b-2 border-black bg-gray-50">
+                    <div className="max-w-7xl mx-auto">
+                        <h2 className="text-4xl md:text-5xl font-black mb-12">Project Showcase</h2>
+
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                            {project.images.map((image, index) => (
+                                <div key={index} className="group">
+                                    <div className="border-2 border-black overflow-hidden bg-white">
+                                        <div className="aspect-[16/9] overflow-hidden flex items-center justify-center bg-gray-50">
+                                            <img 
+                                                src={image.url} 
+                                                alt={image.caption}
+                                                className="w-full h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                                            />
+                                        </div>
+                                        <div className="p-4 border-t-2 border-black">
+                                            <p className="text-sm font-medium opacity-70">{image.caption}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            )}
 
             {/* Results Section */}
             <section className="px-6 md:px-12 py-20 border-b-2 border-black">

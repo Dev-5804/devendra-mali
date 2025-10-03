@@ -10,7 +10,7 @@ export const projectsData = [
     role: 'Frontend Developer',
 
     // Hero Section
-    heroImage: 'public/assets/clearsite.webp',
+    heroImage: '/assets/Clearsite/clearsite-hero.webp',
     overview: 'Developed clearsite.ae, a portfolio and booking platform for a construction waste management company, showcasing services and enabling clients to schedule cleanups online',
 
     // Challenge
@@ -97,9 +97,9 @@ export const projectsData = [
 
     // Images (placeholders)
     images: [
-      { url: 'public/assets/clearsite.webp', caption: 'Product listing page with filters' },
-      { url: 'public/assets/clearsite.webp', caption: 'Checkout process' },
-      { url: 'public/assets/clearsite.webp', caption: 'Admin dashboard' }
+      { url: '/assets/Clearsite/Blog-Page.webp', caption: 'Blog page showcasing company updates and news' },
+      { url: '/assets/Clearsite/Contact-form.webp', caption: 'Contact form for service inquiries and booking' },
+      { url: '/assets/Clearsite/Map-integration.webp', caption: 'Interactive map showing service areas' }
     ],
 
     // Links
@@ -121,7 +121,7 @@ export const projectsData = [
     duration: '1 months',
     role: 'Full Stack Developer',
 
-    heroImage: 'public/assets/mframingpixel.webp',
+    heroImage: '/assets/Mframingpixel/Mframingpixel-hero.webp',
     overview: 'Developed mframingpixel.com, a portfolio website for an interior design photographer, integrated with a headless CMS for easy content management and updates.',
 
     challenge: {
@@ -199,9 +199,9 @@ export const projectsData = [
     },
 
     images: [
-      { url: 'public/assets/mframingpixel.webp', caption: 'Board view with drag-and-drop' },
-      { url: 'public/assets/mframingpixel.webp', caption: 'Task details and comments' },
-      { url: 'public/assets/mframingpixel.webp', caption: 'Calendar view' }
+      { url: '/assets/Mframingpixel/About-page.webp', caption: 'About page showcasing photographer bio and services' },
+      { url: '/assets/Mframingpixel/contact-form.webp', caption: 'Contact form for project inquiries and bookings' },
+      { url: '/assets/Mframingpixel/project-section.webp', caption: 'Project gallery displaying interior photography portfolio' }
     ],
 
     links: {
@@ -221,7 +221,7 @@ export const projectsData = [
     duration: '1 month',
     role: 'Frontend Developer',
 
-    heroImage: 'public/assets/mframingpixel.webp',
+    heroImage: '/assets/Modedge/modedge-hero.webp',
     overview: 'A beautiful interior design portfolio showcasing stunning photography and seamless user experience.',
 
     challenge: {
@@ -292,9 +292,9 @@ export const projectsData = [
     },
 
     images: [
-      { url: 'public/assets/modedge.webp', caption: 'Project gallery view' },
-      { url: 'public/assets/modedge.webp', caption: 'Case study detail' },
-      { url: 'public/assets/modedge.webp', caption: 'Mobile responsive design' }
+      { url: '/assets/Modedge/project-section.webp', caption: 'Project gallery showcasing interior design work' },
+      { url: '/assets/Modedge/video-gallery.webp', caption: 'Video gallery featuring project walkthroughs' },
+      { url: '/assets/Modedge/modedge-hero.webp', caption: 'Hero section with featured design projects' }
     ],
 
     links: {
@@ -314,7 +314,7 @@ export const projectsData = [
     duration: '2 months',
     role: 'Website Developer',
 
-    heroImage: 'menteronics-hero.jpg',
+    heroImage: '/assets/Menteronics/menteronics-hero.webp',
     overview: 'Developed menteronics.com, an informative website for a startup offering offline courses, providing resources and information, focused on offline learning experiences.',
 
     challenge: {
@@ -384,9 +384,9 @@ export const projectsData = [
     },
 
     images: [
-      { url: 'public/assets/menteronics.webp', caption: 'Course information page' },
-      { url: 'public/assets/menteronics.webp', caption: 'Resource library' },
-      { url: 'public/assets/menteronics.webp', caption: 'Contact form' }
+      { url: '/assets/Menteronics/contact-form.webp', caption: 'Contact form for course inquiries and registration' },
+      { url: '/assets/Menteronics/dark-theme.webp', caption: 'Dark theme interface for comfortable browsing' },
+      { url: '/assets/Menteronics/menteronics-hero.webp', caption: 'Hero section showcasing featured courses' }
     ],
 
     links: {
@@ -394,7 +394,7 @@ export const projectsData = [
       github: ''
     },
 
-    nextProject: 'portfolio'
+    nextProject: 'portfolio-website'
   },
 
   {
@@ -406,7 +406,7 @@ export const projectsData = [
     duration: '1 month',
     role: 'Full Stack Developer',
 
-    heroImage: 'public/assets/portfolio.webp',
+    heroImage: '/assets/potfolio/portfolio-hero.webp',
     overview: 'Designed and developed a bold, minimalist portfolio website showcasing projects with dynamic routing, smooth animations, and integrated contact functionality.',
 
     challenge: {
@@ -489,9 +489,9 @@ export const projectsData = [
     },
 
     images: [
-      { url: 'public/assets/portfolio.webp', caption: 'Hero section with animated typography' },
-      { url: 'public/assets/portfolio.webp', caption: 'Projects grid with asymmetric layout' },
-      { url: 'public/assets/portfolio.webp', caption: 'Case study detail page' }
+      { url: '/assets/potfolio/portfolio-hero.webp', caption: 'Hero section with bold typography and animation' },
+      { url: '/assets/potfolio/project-section.webp', caption: 'Projects grid with asymmetric masonry layout' },
+      { url: '/assets/potfolio/case-study.webp', caption: 'Detailed case study page with project breakdown' }
     ],
 
     links: {
