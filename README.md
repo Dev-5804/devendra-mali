@@ -2,7 +2,7 @@
 
 A modern, bold, and minimalist portfolio website showcasing my projects and skills as a Full Stack Developer and Information Technology student.
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-View%20Site-black?style=for-the-badge&logo=vercel)](https://devendra-mali.vercel.app/)
+[![Live Website](https://img.shields.io/badge/Live%20Demo-View%20Site-black?style=for-the-badge&logo=vercel)](https://devendramali.tech/)
 
 ![Portfolio Website Screenshot](./public/assets/potfolio/portfolio-hero.webp)
 
