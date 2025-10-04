@@ -10,6 +10,7 @@ const CaseStudy = () => {
     const { projectId } = useParams()
     const navigate = useNavigate()
     const [isLoading, setIsLoading] = useState(true)
+    const [visibleSections, setVisibleSections] = useState({})
     const project = getProjectById(projectId)
     const nextProject = project ? getNextProject(projectId) : null
 
@@ -28,6 +29,34 @@ const CaseStudy = () => {
         
         return () => clearTimeout(timer)
     }, [projectId, project])
+
+    useEffect(() => {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        }
+
+        const observerCallback = (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setVisibleSections(prev => ({
+                        ...prev,
+                        [entry.target.id]: true
+                    }))
+                }
+            })
+        }
+
+        const observer = new IntersectionObserver(observerCallback, observerOptions)
+
+        // Observe all sections
+        const sections = document.querySelectorAll('[data-animate]')
+        sections.forEach(section => observer.observe(section))
+
+        return () => {
+            sections.forEach(section => observer.unobserve(section))
+        }
+    }, [isLoading])
 
     if (isLoading) {
         return <PageLoader />
@@ -76,7 +105,14 @@ const CaseStudy = () => {
             </header>
 
             {/* Hero Section */}
-            <section className="px-6 md:px-12 py-20 border-b-2 border-black" aria-label="Project overview">
+            <section 
+                id="hero-section"
+                data-animate
+                className={`px-6 md:px-12 py-20 border-b-2 border-black transition-all duration-1000 ${
+                    visibleSections['hero-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`} 
+                aria-label="Project overview"
+            >
                 <div className="max-w-7xl mx-auto">
                     <div className="grid lg:grid-cols-5 gap-12 mb-12">
                         <div className="lg:col-span-3">
@@ -138,7 +174,13 @@ const CaseStudy = () => {
             </section>
 
             {/* Challenge Section */}
-            <section className="px-6 md:px-12 py-20 border-b-2 border-black">
+            <section 
+                id="challenge-section"
+                data-animate
+                className={`px-6 md:px-12 py-20 border-b-2 border-black transition-all duration-1000 ${
+                    visibleSections['challenge-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+            >
                 <div className="max-w-7xl mx-auto">
                     <div className="grid lg:grid-cols-2 gap-16">
                         <div>
@@ -167,7 +209,13 @@ const CaseStudy = () => {
             </section>
 
             {/* Solution Section */}
-            <section className="px-6 md:px-12 py-20 border-b-2 border-black bg-black text-white">
+            <section 
+                id="solution-section"
+                data-animate
+                className={`px-6 md:px-12 py-20 border-b-2 border-black bg-black text-white transition-all duration-1000 ${
+                    visibleSections['solution-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+            >
                 <div className="max-w-7xl mx-auto">
                     <div className="grid lg:grid-cols-2 gap-16">
                         <div>
@@ -198,7 +246,13 @@ const CaseStudy = () => {
             </section>
 
             {/* Technologies Section */}
-            <section className="px-6 md:px-12 py-20 border-b-2 border-black">
+            <section 
+                id="technologies-section"
+                data-animate
+                className={`px-6 md:px-12 py-20 border-b-2 border-black transition-all duration-1000 ${
+                    visibleSections['technologies-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+            >
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-4xl md:text-5xl font-black mb-12">Technologies Used</h2>
 
@@ -219,7 +273,13 @@ const CaseStudy = () => {
             </section>
 
             {/* Features Section */}
-            <section className="px-6 md:px-12 py-20 border-b-2 border-black">
+            <section 
+                id="features-section"
+                data-animate
+                className={`px-6 md:px-12 py-20 border-b-2 border-black transition-all duration-1000 ${
+                    visibleSections['features-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+            >
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-4xl md:text-5xl font-black mb-12">Key Features</h2>
 
@@ -239,7 +299,13 @@ const CaseStudy = () => {
 
             {/* Project Gallery Section */}
             {project.images && project.images.length > 0 && (
-                <section className="px-6 md:px-12 py-20 border-b-2 border-black bg-gray-50">
+                <section 
+                    id="gallery-section"
+                    data-animate
+                    className={`px-6 md:px-12 py-20 border-b-2 border-black bg-gray-50 transition-all duration-1000 ${
+                        visibleSections['gallery-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}
+                >
                     <div className="max-w-7xl mx-auto">
                         <h2 className="text-4xl md:text-5xl font-black mb-12">Project Showcase</h2>
 
@@ -266,7 +332,13 @@ const CaseStudy = () => {
             )}
 
             {/* Results Section */}
-            <section className="px-6 md:px-12 py-20 border-b-2 border-black">
+            <section 
+                id="results-section"
+                data-animate
+                className={`px-6 md:px-12 py-20 border-b-2 border-black transition-all duration-1000 ${
+                    visibleSections['results-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                }`}
+            >
                 <div className="max-w-7xl mx-auto">
                     <h2 className="text-4xl md:text-5xl font-black mb-12">Results & Impact</h2>
 
@@ -296,7 +368,13 @@ const CaseStudy = () => {
 
             {/* Links Section */}
             {(project.links.github || project.links.demo || project.links.live) && (
-                <section className="px-6 md:px-12 py-20 border-b-2 border-black bg-gray-50">
+                <section 
+                    id="links-section"
+                    data-animate
+                    className={`px-6 md:px-12 py-20 border-b-2 border-black bg-gray-50 transition-all duration-1000 ${
+                        visibleSections['links-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}
+                >
                     <div className="max-w-7xl mx-auto">
                         <h2 className="text-3xl md:text-4xl font-black mb-8">Project Links</h2>
 
@@ -343,7 +421,13 @@ const CaseStudy = () => {
 
             {/* Next Project Section */}
             {nextProject && (
-                <section className="px-6 md:px-12 py-20">
+                <section 
+                    id="next-project-section"
+                    data-animate
+                    className={`px-6 md:px-12 py-20 transition-all duration-1000 ${
+                        visibleSections['next-project-section'] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+                    }`}
+                >
                     <div className="max-w-7xl mx-auto">
                         <p className="text-sm uppercase tracking-wider mb-6 opacity-60">Next Project</p>
 

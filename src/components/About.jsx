@@ -1,7 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { trackResumeView } from '../utils/analytics'
 
 const About = () => {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
+
   const skills = [
     'React',
     'JavaScript',
@@ -31,7 +55,11 @@ const About = () => {
   ]
 
   return (
-    <section id="about" className="min-h-screen flex items-center px-6 md:px-12 py-20 relative bg-white" aria-label="About me section">
+    <section 
+      ref={sectionRef}
+      id="about" 
+      className="min-h-screen flex items-center px-6 md:px-12 py-20 relative bg-white"
+    >
       {/* Vertical Text Accent */}
       <div className="hidden lg:block absolute left-12 top-1/2 transform -translate-y-1/2 -rotate-90 origin-center" aria-hidden="true">
         <span className="text-8xl font-black opacity-5 tracking-wider">ABOUT</span>
@@ -40,7 +68,9 @@ const About = () => {
       <div className="max-w-7xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left Column - Main Content */}
-          <div>
+          <div className={`transition-all duration-1000 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
             <p className="text-xs md:text-sm tracking-[0.3em] uppercase opacity-60 mb-8">
               Who I Am
             </p>
@@ -86,7 +116,9 @@ const About = () => {
           </div>
 
           {/* Right Column - Stats */}
-          <div className="space-y-12">
+          <div className={`space-y-12 transition-all duration-1000 delay-300 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+          }`}>
             {stats.map((stat, index) => (
               <div key={index} className="group">
                 <div className="flex items-baseline gap-4 mb-3">

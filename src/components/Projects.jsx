@@ -1,8 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import { projectsData } from '../data/projectsData'
 
 const Projects = () => {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
+
   // Use first 6 projects for display
   const projects = projectsData.slice(0, 6).map((project, index) => ({
     id: project.id,
@@ -14,7 +38,12 @@ const Projects = () => {
   }))
 
   return (
-    <section id="projects" className="min-h-screen px-6 md:px-12 py-20 relative bg-white overflow-hidden" aria-label="Portfolio projects section">
+    <section 
+      ref={sectionRef}
+      id="projects" 
+      className="min-h-screen px-6 md:px-12 py-20 relative bg-white overflow-hidden" 
+      aria-label="Portfolio projects section"
+    >
       {/* Large Background Text */}
       <div className="absolute top-20 right-0 text-[200px] md:text-[300px] font-black opacity-[0.02] leading-none pointer-events-none" aria-hidden="true">
         WORK
@@ -22,7 +51,9 @@ const Projects = () => {
 
       <div className="max-w-7xl mx-auto relative z-10">
         {/* Section Header - Creative Layout */}
-        <div className="mb-20 flex items-start gap-12">
+        <div className={`mb-20 flex items-start gap-12 transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
           {/* Vertical Number */}
           <div className="hidden lg:block">
             <div className="transform -rotate-90 origin-left mt-32">
@@ -50,7 +81,10 @@ const Projects = () => {
             <Link
               key={project.id}
               to={`/case-study/${project.id}`}
-              className={`group relative overflow-hidden cursor-pointer ${
+              style={{ transitionDelay: `${index * 100}ms` }}
+              className={`group relative overflow-hidden cursor-pointer transition-all duration-700 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'
+              } ${
                 project.size === 'large' ? 'lg:col-span-2 lg:row-span-2' : 'lg:col-span-2'
               }`}
               aria-label={`View case study for ${project.title}`}
@@ -126,7 +160,9 @@ const Projects = () => {
         </div>
 
         {/* Bottom CTA */}
-        <div className="mt-20 flex flex-col md:flex-row items-center justify-between gap-8 border-t-2 border-black pt-12">
+        <div className={`mt-20 flex flex-col md:flex-row items-center justify-between gap-8 border-t-2 border-black pt-12 transition-all duration-1000 delay-500 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
           <div>
             <p className="text-2xl md:text-3xl font-bold mb-2">Like what you see?</p>
             <p className="text-lg opacity-70">Let's build something amazing together.</p>

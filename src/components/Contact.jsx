@@ -1,9 +1,11 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
 import { trackContactFormSubmit, trackSocialClick, trackExternalLink } from '../utils/analytics'
 
 const Contact = () => {
+  const [isVisible, setIsVisible] = useState(false)
+  const sectionRef = useRef(null)
   const formRef = useRef()
   const [formData, setFormData] = useState({
     name: '',
@@ -12,6 +14,27 @@ const Contact = () => {
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState(null) // 'success', 'error', or null
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true)
+        }
+      },
+      { threshold: 0.1 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
 
   const contactInfo = [
     {
@@ -80,7 +103,11 @@ const Contact = () => {
   }
 
   return (
-    <section id="contact" className="relative bg-white text-black overflow-hidden" aria-label="Contact section">
+    <section 
+      ref={sectionRef}
+      id="contact" 
+      className="relative bg-white text-black overflow-hidden"
+    >
       {/* Main Contact Section */}
       <div className="min-h-screen flex items-center px-6 md:px-12 py-20 relative">
         {/* Large Background Text */}
@@ -91,7 +118,9 @@ const Contact = () => {
         <div className="max-w-7xl mx-auto w-full relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
             {/* Left Column - CTA */}
-            <div>
+            <div className={`transition-all duration-1000 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
               <p className="text-xs md:text-sm tracking-[0.3em] uppercase opacity-60 mb-8">
                 04 / Get In Touch
               </p>
@@ -136,7 +165,9 @@ const Contact = () => {
             </div>
 
             {/* Right Column - Contact Form */}
-            <div className="bg-black text-white p-8 md:p-12 relative">
+            <div className={`bg-black text-white p-8 md:p-12 relative transition-all duration-1000 delay-300 ${
+              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+            }`}>
               {/* Corner Decoration */}
               <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-white opacity-30" aria-hidden="true"></div>
               <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-white opacity-30" aria-hidden="true"></div>
