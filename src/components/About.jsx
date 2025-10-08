@@ -55,6 +55,7 @@ const About = () => {
   ]
 
   return (
+    <>
     <section 
       ref={sectionRef}
       id="about" 
@@ -98,21 +99,6 @@ const About = () => {
                 <span className="font-bold text-black"> user-centric design</span>.
               </p>
             </div>
-
-            {/* Skills Tags */}
-            <div className="mt-12">
-              <p className="text-xs tracking-[0.2em] uppercase opacity-60 mb-4">Expertise</p>
-              <div className="flex flex-wrap gap-3">
-                {skills.map((skill) => (
-                  <span 
-                    key={skill}
-                    className="px-4 py-2 border border-black text-sm font-medium hover:bg-black hover:text-white transition-all duration-300 cursor-default"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
           </div>
 
           {/* Right Column - Stats */}
@@ -153,6 +139,122 @@ const About = () => {
       <div className="absolute bottom-20 right-20 w-40 h-40 border border-black opacity-5 hidden lg:block"></div>
       <div className="absolute top-40 right-1/4 w-20 h-20 bg-black opacity-5 rounded-full hidden lg:block"></div>
     </section>
+
+    {/* Skills Section - Dedicated */}
+    <section className="min-h-screen flex items-center px-6 md:px-12 py-20 relative bg-white border-t-2 border-black overflow-hidden">
+      {/* Diagonal Stripe Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.02]" aria-hidden="true">
+        <div className="absolute top-0 left-0 w-full h-full" style={{
+          backgroundImage: 'repeating-linear-gradient(45deg, black 0, black 2px, transparent 2px, transparent 20px)'
+        }}></div>
+      </div>
+
+      {/* Large Background Text */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-[150px] md:text-[250px] lg:text-[350px] font-black opacity-[0.02] leading-none pointer-events-none whitespace-nowrap" aria-hidden="true">
+        SKILLS
+      </div>
+
+      {/* Floating Geometric Shapes */}
+      <div className="absolute top-20 right-10 w-32 h-32 border-2 border-black opacity-10 rotate-12 hidden lg:block" aria-hidden="true"></div>
+      <div className="absolute bottom-40 left-20 w-24 h-24 bg-black opacity-5 rounded-full hidden lg:block" aria-hidden="true"></div>
+      <div className="absolute top-1/3 left-10 w-16 h-16 border-2 border-black opacity-10 -rotate-45 hidden lg:block" aria-hidden="true"></div>
+
+      <div className="max-w-7xl mx-auto w-full relative z-10">
+        <div className="text-center mb-16">
+          <p className="text-xs md:text-sm tracking-[0.3em] uppercase opacity-60 mb-8">
+            02 / What I Do
+          </p>
+          
+          <h2 className="text-5xl md:text-6xl lg:text-8xl font-black mb-8 leading-tight">
+            TECHNICAL
+            <br />
+            <span className="relative inline-block">
+              <span className="italic font-light">Expertise</span>
+              <div className="absolute bottom-2 left-0 w-full h-4 bg-black opacity-10 -z-10"></div>
+            </span>
+          </h2>
+          
+          <div className="w-32 h-1 bg-black mx-auto mb-8"></div>
+          
+          <p className="text-xl md:text-2xl leading-relaxed opacity-80 max-w-3xl mx-auto">
+            Specialized in modern web technologies and frameworks to build 
+            scalable, performant, and beautiful applications.
+          </p>
+        </div>
+
+        {/* Skills Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+          {skills.map((skill, index) => (
+            <div
+              key={skill}
+              className="group relative border-2 border-black bg-white hover:bg-black hover:text-white transition-all duration-500 overflow-hidden"
+              style={{ transitionDelay: `${index * 50}ms` }}
+            >
+              {/* Giant Number Background */}
+              <div className="absolute -top-4 -right-4 text-[120px] font-black opacity-5 group-hover:opacity-10 leading-none pointer-events-none transition-opacity duration-500">
+                {String(index + 1).padStart(2, '0')}
+              </div>
+
+              {/* Diagonal Corner Accent */}
+              <div className="absolute top-0 right-0 w-0 h-0 border-t-[40px] border-r-[40px] border-t-black border-r-transparent opacity-10 group-hover:opacity-0 transition-opacity duration-500"></div>
+
+              {/* Content */}
+              <div className="relative z-10 p-8 md:p-10">
+                <h3 className="text-3xl md:text-4xl font-black mb-4 group-hover:scale-105 transition-transform duration-500">{skill}</h3>
+                
+                {/* Decorative Line */}
+                <div className="w-16 h-1 bg-black group-hover:bg-white group-hover:w-24 transition-all duration-500 mb-4"></div>
+                
+                {/* Skill Description */}
+                <p className="text-sm opacity-70 group-hover:opacity-90 transition-opacity leading-relaxed">
+                  {skill === 'React' && 'Component-based UI library for building interactive interfaces'}
+                  {skill === 'JavaScript' && 'Core language for web development and modern frameworks'}
+                  {skill === 'TypeScript' && 'Strongly typed JavaScript for scalable applications'}
+                  {skill === 'Node.js' && 'Server-side JavaScript runtime for backend development'}
+                  {skill === 'Tailwind CSS' && 'Utility-first CSS framework for rapid UI development'}
+                  {skill === 'Next.js' && 'React framework for production-grade applications'}
+                  {skill === 'Supabase' && 'Open-source Firebase alternative for backend services'}
+                </p>
+              </div>
+
+              {/* Hover Effect - Animated Border */}
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-white scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+            </div>
+          ))}
+        </div>
+
+        {/* Bottom Section with Tags */}
+        <div className="mt-20 text-center">
+          <div className="inline-block border-2 border-black p-8 md:p-12 bg-white relative">
+            {/* Corner Decorations */}
+            <div className="absolute top-0 left-0 w-6 h-6 border-t-4 border-l-4 border-black"></div>
+            <div className="absolute top-0 right-0 w-6 h-6 border-t-4 border-r-4 border-black"></div>
+            <div className="absolute bottom-0 left-0 w-6 h-6 border-b-4 border-l-4 border-black"></div>
+            <div className="absolute bottom-0 right-0 w-6 h-6 border-b-4 border-r-4 border-black"></div>
+
+            <p className="text-lg md:text-xl font-bold mb-6 uppercase tracking-wider">
+              Core Strengths
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <div className="px-6 py-3 bg-black text-white text-sm uppercase tracking-wider font-bold hover:scale-105 transition-transform duration-300">
+                Quick Learner
+              </div>
+              <div className="px-6 py-3 bg-black text-white text-sm uppercase tracking-wider font-bold hover:scale-105 transition-transform duration-300">
+                Problem Solver
+              </div>
+              <div className="px-6 py-3 bg-black text-white text-sm uppercase tracking-wider font-bold hover:scale-105 transition-transform duration-300">
+                Team Player
+              </div>
+            </div>
+            
+            <p className="text-base opacity-70 mt-6 italic">
+              "Always learning, always growing. Exploring new technologies every day."
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    </>
   )
 }
 
