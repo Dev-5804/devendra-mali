@@ -28,14 +28,14 @@ const Hero = () => {
           {/* Large Name Typography */}
           <div className="mb-8">
             <h1 
-              className={`text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight transition-all duration-1000 delay-500 ${
+              className={`text-[52px] md:text-8xl lg:text-9xl font-black leading-none tracking-tight transition-all duration-1000 delay-500 ${
                 isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
               }`}
             >
               DEVENDRA
             </h1>
             <h1 
-              className={`text-6xl md:text-8xl lg:text-9xl font-black leading-none tracking-tight transition-all duration-1000 delay-700 ${
+              className={`text-[52px] md:text-8xl lg:text-9xl font-black leading-none tracking-tight transition-all duration-1000 delay-700 ${
                 isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
               }`}
             >
