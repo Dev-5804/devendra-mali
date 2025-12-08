@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { trackResumeView } from '../utils/analytics'
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef(null)
 
   useEffect(() => {
+    const currentRef = sectionRef.current
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -15,13 +15,13 @@ const About = () => {
       { threshold: 0.1 }
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    if (currentRef) {
+      observer.observe(currentRef)
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+      if (currentRef) {
+        observer.unobserve(currentRef)
       }
     }
   }, [])

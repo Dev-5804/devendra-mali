@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
 import emailjs from '@emailjs/browser'
-import { trackContactFormSubmit, trackSocialClick, trackExternalLink } from '../utils/analytics'
+import { trackContactFormSubmit, trackExternalLink } from '../utils/analytics'
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false)
@@ -16,6 +15,7 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState(null) // 'success', 'error', or null
 
   useEffect(() => {
+    const currentRef = sectionRef.current
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -25,13 +25,13 @@ const Contact = () => {
       { threshold: 0.1 }
     )
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
+    if (currentRef) {
+      observer.observe(currentRef)
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+      if (currentRef) {
+        observer.unobserve(currentRef)
       }
     }
   }, [])
