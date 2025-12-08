@@ -1,218 +1,6 @@
 // Project Data - All project details for portfolio
 export const projectsData = [
   {
-    id: 'clearsite',
-    title: 'ClearSite',
-    subtitle: 'Full Stack Web Application',
-    category: 'Full Stack',
-    year: '2025',
-    duration: '1 month',
-    role: 'Frontend Developer',
-
-    // Hero Section
-    heroImage: '/assets/Clearsite/clearsite-hero.webp',
-    overview: 'Developed clearsite.ae, a portfolio and booking platform for a construction waste management company, showcasing services and enabling clients to schedule cleanups online',
-
-    // Challenge
-    challenge: {
-      title: 'The Challenge',
-      description: 'Developed clearsite.ae, a portfolio and booking platform for a construction waste management company, showcasing services and enabling clients to schedule cleanups online.',
-      points: [
-        'Built a dual-purpose platform serving as both a company portfolio and a customer booking system.',
-        'Designed a clean, user-friendly interface to simplify service discovery and bookings.',
-        'Implemented booking functionality with form handling, scheduling, and client notifications.',
-        'Ensured responsive design for smooth performance across desktop and mobile.',
-        'Focused on fast load times and optimized performance for better user experience.',
-        'Collaborated in a team environment, coordinating roles and development tasks effectively.'
-      ]
-    },
-
-    // Solution
-    solution: {
-      title: 'The Solution',
-      description: 'We designed and developed a responsive web platform that combined a portfolio to showcase services with an integrated booking system. To solve the clutter problem, we created a minimal, intuitive UI so users could easily browse services and schedule cleanups. We optimized performance with lightweight components and responsive layouts, and ensured seamless functionality across devices.',
-      approach: [
-        'Clear separation of portfolio and booking flows.',
-        'Simple and responsive user interface.',
-        'Smooth booking process with form handling and notifications.',
-        'Team collaboration to integrate design and development efficiently.'
-      ]
-    },
-
-    // Technologies
-    technologies: [
-      { name: 'React.js', category: 'Frontend' },
-      { name: 'Tailwind CSS', category: 'Styling' },
-      { name: 'Node.js', category: 'Backend' },
-      { name: 'Supabase', category: 'Database' },
-      { name: 'Netlify', category: 'Deployment' },
-      { name: 'Redux', category: 'State Management' },
-      { name: 'Vercel', category: 'Deployment' }
-    ],
-
-    // Features
-    features: [
-      {
-        title: 'Company Portfolio',
-        description: 'Showcases services, projects, and company details in a professional layout.'
-      },
-      {
-        title: 'Online Booking System',
-        description: 'Allows clients to schedule construction waste cleanup directly from the site.'
-      },
-      {
-        title: 'Responsive Design',
-        description: 'Optimized for Easy way for customers to get in touch or request services.desktop, tablet, and mobile users.'
-      },
-      {
-        title: 'Service Information Pages',
-        description: 'Clear breakdown of offerings with details for each service.'
-      },
-      {
-        title: 'Contact & Inquiry Forms',
-        description: 'Easy way for customers to get in touch or request services.'
-      },
-      {
-        title: 'Clean & Minimal UI',
-        description: 'Focused on usability and simple navigation for non-technical users.'
-      }
-    ],
-
-    // Results
-    results: {
-      metrics: [
-        { value: '99.9%', label: 'Uptime' },
-        { value: '2.1s', label: 'Page Load Time' },
-        { value: '150+', label: 'Monthly Visitors' },
-        { value: '4.8/5', label: 'User Rating' }
-      ],
-      outcomes: [
-        'Helped the company establish a professional online presence to showcase their services.',
-        'Enabled clients to book cleanup services online, reducing manual coordination.',
-        'Improved customer engagement through a responsive, easy-to-use interface.',
-        'Streamlined the company’s service inquiries and booking process, saving time and effort.',
-        'Delivered a modern, fast-loading platform that reflects the brand’s professionalism.'
-      ]
-    },
-
-    // Images (placeholders)
-    images: [
-      { url: '/assets/Clearsite/Blog-Page.webp', caption: 'Blog page showcasing company updates and news' },
-      { url: '/assets/Clearsite/Contact-form.webp', caption: 'Contact form for service inquiries and booking' },
-      { url: '/assets/Clearsite/Map-integration.webp', caption: 'Interactive map showing service areas' }
-    ],
-
-    // Links
-    links: {
-      live: 'https://clearsite.ae',
-      github: ''
-    },
-
-    // Next Project
-    nextProject: 'mframing-pixel'
-  },
-
-  {
-    id: 'mframing-pixel',
-    title: 'MFraming Pixel',
-    subtitle: 'Photographer Portfolio Website',
-    category: 'Full Stack',
-    year: '2025',
-    duration: '1 month',
-    role: 'Frontend Developer',
-
-    heroImage: '/assets/Mframingpixel/Mframingpixel-hero.webp',
-    overview: 'Developed mframingpixel.com, a portfolio website for an interior design photographer, integrated with a headless CMS for easy content management and updates.',
-
-    challenge: {
-      title: 'The Challenge',
-      description: 'Building a portfolio website for a photographer required balancing visual storytelling with technical performance. The main challenge was integrating a headless CMS that allowed the photographer to easily manage content while ensuring the site stayed fast, responsive, and visually polished across devices. Additionally, handling large, high-quality images without compromising speed and user experience was a key hurdle.',
-      points: [
-        'Ensuring the photographer could easily update projects, galleries, and blog content without technical knowledge.',
-        'Showcasing high-quality photography while keeping the site fast-loading and optimized.',
-        'Preserving the aesthetic impact of visuals across desktop, tablet, and mobile.',
-        'Connecting a headless CMS smoothly with the frontend for real-time updates without breaking design consistency.'
-      ]
-    },
-
-    solution: {
-      title: 'The Solution',
-      description: 'To address the challenges, we developed a responsive portfolio website that seamlessly integrates with a headless CMS, allowing the photographer to manage galleries, projects, and content without technical assistance. The site was designed to showcase high-quality images effectively while maintaining fast load times and smooth performance across devices.',
-      approach: [
-        'Used a CMS to separate content management from the frontend, enabling easy updates.',
-        'Implemented lazy loading, compression, and responsive image sizes to keep performance high.',
-        'Created layouts that preserve visual impact on desktop, tablet, and mobile.',
-        'Focused on design that highlights photography without distractions.',
-        'Ensured seamless communication between CMS data and the website’s display components.'
-      ]
-    },
-
-    technologies: [
-      { name: 'Next.js', category: 'Frontend' },
-      { name: 'TypeScript', category: 'Language' },
-      { name: 'Tailwind CSS', category: 'Styling' },
-      { name: 'Node.js', category: 'Backend' },
-      { name: 'Supabase', category: 'Database' },
-      { name: 'Vercel', category: 'Deployment' }
-    ],
-
-    features: [
-      {
-        title: 'Portfolio Showcase',
-        description: 'Displays interior design photography in organized galleries with high visual impact.'
-      },
-      {
-        title: 'Headless CMS Integration',
-        description: 'Allows easy content management for projects, images, and blog posts without coding.'
-      },
-      {
-        title: 'Responsive Design',
-        description: 'Optimized layouts for desktop, tablet, and mobile devices.'
-      },
-      {
-        title: 'High-Quality Image Optimization',
-        description: 'Ensures fast load times while preserving image clarity.'
-      },
-      {
-        title: 'Minimal & Clean UI',
-        description: 'Focused on highlighting photography without unnecessary distractions.'
-      },
-      {
-        title: 'Dynamic Content Updates',
-        description: 'Changes in the CMS automatically reflect on the website in real-time.'
-      }
-    ],
-
-    results: {
-      metrics: [
-        { value: '98%', label: 'User Satisfaction' },
-        { value: '50%', label: 'Content Management Efficiency' },
-        { value: '<200ms', label: 'Page Load Latency' },
-        { value: '50+', label: 'Portfolio Projects Managed' }
-      ],
-      outcomes: [
-        'Photographer can update galleries and projects 50% faster using the headless CMS',
-        'Achieved 98% user satisfaction for website usability and design',
-        'High-quality images load in under 200ms, improving user experience',
-        'Seamless content updates with zero manual errors across 500+ projects'
-      ]
-    },
-
-    images: [
-      { url: '/assets/Mframingpixel/About-page.webp', caption: 'About page showcasing photographer bio and services' },
-      { url: '/assets/Mframingpixel/contact-form.webp', caption: 'Contact form for project inquiries and bookings' },
-      { url: '/assets/Mframingpixel/project-section.webp', caption: 'Project gallery displaying interior photography portfolio' }
-    ],
-
-    links: {
-      live: 'https://mframingpixel.com',
-      github: ''
-    },
-
-    nextProject: 'modedge-interior'
-  },
-
-  {
     id: 'modedge-interior',
     title: 'ModEdge Interior',
     subtitle: 'Interior Design Portfolio',
@@ -253,7 +41,7 @@ export const projectsData = [
       { name: 'TailwindCSS', category: 'Styling' },
       { name: 'Node.js', category: 'Backend' },
       { name: 'Supabase', category: 'Database' },
-      {name: 'Emailjs', category: 'Contact Forms' },
+      { name: 'Emailjs', category: 'Contact Forms' },
       { name: 'Vercel', category: 'Deployment' }
     ],
 
@@ -299,98 +87,6 @@ export const projectsData = [
 
     links: {
       live: 'https://modedgeinterior.com',
-      github: ''
-    },
-
-    nextProject: 'menteronics'
-  },
-
-  {
-    id: 'menteronics',
-    title: 'Menteronics',
-    subtitle: 'Educational Platform Website',
-    category: 'Web Development',
-    year: '2025',
-    duration: '1 month',
-    role: 'Frontend Developer',
-
-    heroImage: '/assets/Menteronics/menteronics-hero.webp',
-    overview: 'Developed menteronics.com, an informative website for a startup offering offline courses, providing resources and information, focused on offline learning experiences.',
-
-    challenge: {
-      title: 'The Challenge',
-      description: 'Create an informative website that effectively showcases offline courses, resources, and learning materials without online purchasing capabilities.',
-      points: [
-        'Design an engaging interface for course information and resources',
-        'Implement responsive design for various devices',
-        'Organize content for easy navigation and discovery',
-        'Ensure fast loading times for informative content',
-        'Integrate contact forms for inquiries about offline courses'
-      ]
-    },
-
-    solution: {
-      title: 'The Solution',
-      description: 'Built a responsive website using React and modern web technologies, focusing on content presentation and user engagement for offline learning.',
-      approach: [
-        'Used React for dynamic content rendering',
-        'Implemented responsive design with Tailwind CSS',
-        'Created structured layouts for course information',
-        'Added contact integration with EmailJS',
-        'Optimized for performance and accessibility'
-      ]
-    },
-
-    technologies: [
-      { name: 'React', category: 'Frontend' },
-      { name: 'Tailwind CSS', category: 'Styling' },
-      { name: 'Node.js', category: 'Backend' },
-      { name: 'EmailJS', category: 'Contact Forms' },
-      { name: 'Vercel', category: 'Deployment' }
-    ],
-
-    features: [
-      {
-        title: 'Course Information',
-        description: 'Detailed descriptions of offline courses offered by the startup.'
-      },
-      {
-        title: 'Resource Library',
-        description: 'Collection of learning resources and materials.'
-      },
-      {
-        title: 'Contact Forms',
-        description: 'Easy way for users to inquire about courses and get information.'
-      },
-      {
-        title: 'Responsive Design',
-        description: 'Optimized for desktop, tablet, and mobile devices.'
-      }
-    ],
-
-    results: {
-      metrics: [
-        { value: '1K+', label: 'Monthly Visitors' },
-        { value: '95%', label: 'User Satisfaction' },
-        { value: '2.0s', label: 'Page Load Time' },
-        { value: '4.5/5', label: 'User Rating' }
-      ],
-      outcomes: [
-        'Successfully attracted 1,000+ monthly visitors interested in offline courses',
-        'Achieved 95% user satisfaction with the informative content',
-        'Maintained fast load times for optimal user experience',
-        'Facilitated inquiries leading to offline course enrollments'
-      ]
-    },
-
-    images: [
-      { url: '/assets/Menteronics/contact-form.webp', caption: 'Contact form for course inquiries and registration' },
-      { url: '/assets/Menteronics/dark-theme.webp', caption: 'Dark theme interface for comfortable browsing' },
-      { url: '/assets/Menteronics/menteronics-hero.webp', caption: 'Hero section showcasing featured courses' }
-    ],
-
-    links: {
-      live: 'https://menteronics.tech',
       github: ''
     },
 
@@ -499,103 +195,245 @@ export const projectsData = [
       github: 'https://github.com/Dev-5804/'
     },
 
-    nextProject: 'clearsite'
+    nextProject: 'admin-dashboard'
   },
 
-//   {
-//     id: 'design-system',
-//     title: 'Design System',
-//     subtitle: 'Component Library & Documentation',
-//     category: 'UI/UX',
-//     year: '2024',
-//     duration: '3 months',
-//     role: 'UI Developer',
+  {
+    id: 'admin-dashboard',
+    title: 'Admin Dashboard UI',
+    subtitle: 'Frontend Web Application',
+    category: 'Frontend',
+    year: '2025',
+    duration: '2 weeks',
+    role: 'Frontend Developer',
 
-//     heroImage: 'design-hero.jpg',
-//     overview: 'A comprehensive design system with reusable React components, design tokens, documentation, and theming support for consistent UI development.',
+    // Hero Section
+    heroImage: '/assets/AdminDashboardUI/SC1.webp',
+    overview: 'Developed a responsive admin dashboard template focused on frontend functionality, including navigation layout, overview metrics, and UI components built with Next.js, TypeScript, and Tailwind CSS.',
 
-//     challenge: {
-//       title: 'The Challenge',
-//       description: 'Create a scalable design system that promotes consistency, speeds up development, and provides excellent developer experience with comprehensive documentation.',
-//       points: [
-//         'Design consistent and accessible components',
-//         'Implement theming system for customization',
-//         'Create comprehensive documentation',
-//         'Ensure cross-browser compatibility',
-//         'Build automated testing for all components'
-//       ]
-//     },
+    // Challenge
+    challenge: {
+      title: 'The Challenge',
+      description:
+        'The goal was to build a dashboard template demonstrating UI logic and structural layout commonly required in admin interfaces such as SaaS and data-driven systems.',
+      points: [
+        'Implement a sidebar and topbar layout suitable for dashboard navigation.',
+        'Display overview metrics in a clear and consistent UI pattern.',
+        'Ensure responsive behavior for desktop and tablet use.',
+        'Include placeholders for user sections and future data integration.',
+        'Maintain modular component structure for easy extension.'
+      ]
+    },
 
-//     solution: {
-//       title: 'The Solution',
-//       description: 'Developed a React component library with TypeScript, implemented design tokens, created Storybook documentation, and added automated visual regression testing.',
-//       approach: [
-//         'Created atomic design system architecture',
-//         'Implemented CSS-in-JS with styled-components',
-//         'Used Storybook for component documentation',
-//         'Added automated testing with Jest and Testing Library',
-//         'Implemented CI/CD for component library publishing'
-//       ]
-//     },
+    // Solution
+    solution: {
+      title: 'The Solution',
+      description:
+        'A responsive admin dashboard template was built with reusable UI components, navigation structure, and overview sections. The interface separates layout, metrics, and user views while keeping code modular for further development.',
+      approach: [
+        'Implemented sidebar and topbar with consistent navigation structure.',
+        'Added metrics cards and overview sections for quick information display.',
+        'Used Tailwind utility classes for responsive layout control.',
+        'Kept component architecture minimal and reusable for future expansion.'
+      ]
+    },
 
-//     technologies: [
-//       { name: 'React', category: 'Framework' },
-//       { name: 'TypeScript', category: 'Language' },
-//       { name: 'Storybook', category: 'Documentation' },
-//       { name: 'Styled Components', category: 'Styling' },
-//       { name: 'Jest', category: 'Testing' },
-//       { name: 'Figma', category: 'Design' },
-//       { name: 'Rollup', category: 'Build Tool' }
-//     ],
+    // Technologies
+    technologies: [
+      { name: 'Next.js', category: 'Frontend' },
+      { name: 'TypeScript', category: 'Language' },
+      { name: 'Tailwind CSS', category: 'Styling' },
+      { name: 'Zustand', category: 'State Management' },
+      { name: 'Vercel', category: 'Deployment' }
+    ],
 
-//     features: [
-//       {
-//         title: '50+ Components',
-//         description: 'Comprehensive library of accessible, reusable components for rapid development.'
-//       },
-//       {
-//         title: 'Theming System',
-//         description: 'Flexible theming with design tokens for easy customization and brand consistency.'
-//       },
-//       {
-//         title: 'Live Documentation',
-//         description: 'Interactive Storybook documentation with code examples and playground.'
-//       },
-//       {
-//         title: 'Accessibility First',
-//         description: 'WCAG 2.1 compliant components with keyboard navigation and screen reader support.'
-//       }
-//     ],
+    // Features
+    features: [
+      {
+        title: 'Sidebar Navigation',
+        description: 'Navigation structure separating dashboard views and potential sections.'
+      },
+      {
+        title: 'Overview Metrics',
+        description: 'Displays high-level information using metric cards.'
+      },
+      {
+        title: 'Responsive Design',
+        description: 'Optimized layout for desktop and tablet usage.'
+      },
+      {
+        title: 'Topbar with Theme Toggle',
+        description: 'Includes dark/light switching and layout-level UI controls.'
+      },
+      {
+        title: 'Reusable Components',
+        description: 'Components built with clean structure for extendability.'
+      }
+    ],
 
-//     results: {
-//       metrics: [
-//         { value: '50+', label: 'Components' },
-//         { value: '95%', label: 'Test Coverage' },
-//         { value: '500+', label: 'NPM Downloads' },
-//         { value: 'AAA', label: 'Accessibility' }
-//       ],
-//       outcomes: [
-//         'Reduced development time by 60% across teams',
-//         'Achieved 95% automated test coverage',
-//         'Maintained AAA accessibility rating for all components',
-//         'Adopted by 3 product teams in organization'
-//       ]
-//     },
+    // Results
+    results: {
+      metrics: [
+        { value: '100%', label: 'Frontend Only' },
+        { value: 'Responsive', label: 'Layout Adaptability' },
+        { value: 'Modular', label: 'Component Structure' },
+        { value: 'Reusable', label: 'UI Components' }
+      ],
+      outcomes: [
+        'Provides a frontend-ready admin interface for future data integration.',
+        'Demonstrates UI structure commonly used in SaaS dashboards.',
+        'Improves portfolio depth with a non-landing style project.',
+        'Shows ability to create modular, production-ready UI components.'
+      ]
+    },
 
-//     images: [
-//       { url: 'design-screenshot1.jpg', caption: 'Component library' },
-//       { url: 'design-screenshot2.jpg', caption: 'Storybook documentation' },
-//       { url: 'design-screenshot3.jpg', caption: 'Theming example' }
-//     ],
+    // Images (placeholders)
+    images: [
+      {
+        url: '/assets/AdminDashboardUI/SC2.webp',
+        caption: 'User table section with status details'
+      },
+      {
+        url: '/assets/AdminDashboardUI/SC3.webp',
+        caption: 'Editing UI'
+      },
+      {
+        url: '/assets/AdminDashboardUI/SC4.webp',
+        caption: 'Light Theme'
+      }
+    ],
 
-//     links: {
-//       live: 'https://design-system.example.com',
-//       github: 'https://github.com/username/design-system',
-//       demo: 'https://storybook.example.com'
-//     },
+    // Links
+    links: {
+      live: 'https://admin-dashboard-ui-nine.vercel.app/dashboard',
+      github: 'https://github.com/Dev-5804/admin-dashboard-ui'
+    },
 
-//     nextProject: 'ecommerce-platform'
-//   }
+    // Next Project
+    nextProject: 'pricing-page'
+  },
+
+  {
+  id: 'pricing-page',
+  title: 'Pricing Page Template',
+  subtitle: 'Frontend Web Application',
+  category: 'Frontend',
+  year: '2025',
+  duration: '2 weeks',
+  role: 'Frontend Developer',
+
+  // Hero
+  heroImage: '/assets/PricingPage/SC1.webp',
+  overview:
+    'Created a responsive pricing page template featuring selectable plans, billing mode switching, add-on options, real-time pricing updates, and a demo checkout form using Next.js, TypeScript, and Tailwind CSS.',
+
+  // Challenge
+  challenge: {
+    title: 'The Challenge',
+    description:
+      'Build an interactive pricing flow demonstrating non-trivial UI logic, including plan selection, billing mode changes, and add-on handling, with calculated totals updating in real time.',
+    points: [
+      'Implement a monthly/yearly billing toggle affecting all prices.',
+      'Support plan selection with clear visual state and pricing impact.',
+      'Handle multiple add-ons with dynamic total calculation.',
+      'Design a summary panel to reflect all selected items.',
+      'Create a demo checkout form for user confirmation.'
+    ]
+  },
+
+  // Solution
+  solution: {
+    title: 'The Solution',
+    description:
+      'A modular pricing interface was developed using reusable UI components and state logic to calculate updated totals. The template provides an example of a common SaaS pricing flow, including billing modes, plan tiers, add-ons, and a confirmation step.',
+    approach: [
+      'State-driven plan and add-on toggles.',
+      'Dynamic summary showing current selections and totals.',
+      'Client-side form validation and confirmation workflow.',
+      'Clear component separation for pricing, summary, and checkout.',
+      'Responsive layout for tablet and desktop.'
+    ]
+  },
+
+  // Technologies
+  technologies: [
+    { name: 'Next.js', category: 'Frontend' },
+    { name: 'TypeScript', category: 'Language' },
+    { name: 'Tailwind CSS', category: 'Styling' },
+    { name: 'Vercel', category: 'Deployment' }
+  ],
+
+  // Features
+  features: [
+    {
+      title: 'Plan Selection',
+      description:
+        'Supports multiple plan tiers with active selection state and corresponding pricing.'
+    },
+    {
+      title: 'Monthly / Yearly Billing',
+      description:
+        'Toggle updates all pricing values in real time and adjusts summary totals.'
+    },
+    {
+      title: 'Add-on Options',
+      description:
+        'Selectable add-ons modify the total cost and appear in the summary panel.'
+    },
+    {
+      title: 'Dynamic Summary Panel',
+      description:
+        'Reflects current plan, billing mode, addons, and updated total pricing.'
+    },
+    {
+      title: 'Demo Checkout Form',
+      description:
+        'Confirms selection and validates form input for a complete demo flow.'
+    }
+  ],
+
+  // Results
+  results: {
+    metrics: [
+      { value: 'Selectable', label: 'Plan Tiers' },
+      { value: 'Dynamic', label: 'Billing Mode' },
+      { value: 'Responsive', label: 'Layout' },
+      { value: 'State-driven', label: 'Pricing Logic' }
+    ],
+    outcomes: [
+      'Demonstrates ability to build interactive UI with real-time calculations.',
+      'Shows proficiency in common SaaS pricing flows and UI logic.',
+      'Adds a focused, logic-heavy project to the portfolio.',
+      'Includes deploy-ready structure and modular components.'
+    ]
+  },
+
+  // Images
+  images: [
+    {
+      url: '/assets/PricingPage/SC2.webp',
+      caption: 'Details page'
+    },
+    {
+      url: '/assets/PricingPage/SC3.webp',
+      caption: 'Congration screen after checkout'
+    },
+    {
+      url: '/assets/PricingPage/SC4.webp',
+      caption: 'Yearly plan toggle'
+    }
+  ],
+
+  // Links
+  links: {
+    live: 'https://pricing-page-template.vercel.app/',
+    github: 'https://github.com/Dev-5804/pricing-page-template'
+  },
+
+  // Next
+  nextProject: 'modedge-interior'
+}
+
 ];
 
 // Helper function to get project by ID
