@@ -136,12 +136,4 @@ npm run dev
 
 This project is open source and available under the [MIT License](LICENSE).
 
-## 🙏 Acknowledgments
-
-- Design inspiration from modern editorial layouts
-- Built with React and Tailwind CSS
-- Deployed with Vite
-
----
-
-**© 2025 Devendra Mali. All rights reserved.**
+**© 2026 Devendra Mali. All rights reserved.**

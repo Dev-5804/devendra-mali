@@ -215,7 +215,7 @@ export const projectsData = [
     title: 'ModEdge Interior',
     subtitle: 'Interior Design Portfolio',
     category: 'Portfolio Website',
-    year: '2025',
+    year: '2026',
     duration: '1 month',
     role: 'Frontend Developer',
 
@@ -308,7 +308,7 @@ export const projectsData = [
   //   title: 'Personal Portfolio',
   //   subtitle: 'Modern Portfolio Website',
   //   category: 'Full Stack',
-  //   year: '2025',
+  //   year: '2026',
   //   duration: '1 month',
   //   role: 'Full Stack Developer',
 
@@ -413,7 +413,7 @@ export const projectsData = [
     title: 'Admin Dashboard UI',
     subtitle: 'Frontend Web Application',
     category: 'Frontend',
-    year: '2025',
+    year: '2026',
     duration: '2 weeks',
     role: 'Frontend Developer',
 
@@ -528,7 +528,7 @@ export const projectsData = [
     title: 'Pricing Page Template',
     subtitle: 'Frontend Web Application',
     category: 'Frontend',
-    year: '2025',
+    year: '2026',
     duration: '2 weeks',
     role: 'Frontend Developer',
 
