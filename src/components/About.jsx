@@ -190,13 +190,8 @@ const About = () => {
                   <p className="text-sm opacity-70 leading-relaxed font-medium">
                     {tech.desc}
                   </p>
-                  {/* Hover indicator */}
-                  <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12"></line>
-                      <polyline points="12 5 19 12 12 19"></polyline>
-                    </svg>
-                  </div>
+                  {/* Decorative brutalist block indicating hover */}
+                  <div className="absolute bottom-6 right-6 w-3 h-3 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               ))}
               
