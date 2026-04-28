@@ -204,8 +204,8 @@ export const projectsData = [
   ],
 
   links: {
-    live: '',
-    github: ''
+    live: 'https://repolens-liart.vercel.app/',
+    github: 'https://github.com/Dev-5804/repolens'
   },
 
   nextProject: 'modedge-interior'
@@ -300,113 +300,113 @@ export const projectsData = [
       github: ''
     },
 
-    nextProject: 'portfolio-website'
-  },
-
-  {
-    id: 'portfolio-website',
-    title: 'Personal Portfolio',
-    subtitle: 'Modern Portfolio Website',
-    category: 'Full Stack',
-    year: '2025',
-    duration: '1 month',
-    role: 'Full Stack Developer',
-
-    heroImage: '/assets/potfolio/portfolio-hero.webp',
-    overview: 'Designed and developed a bold, minimalist portfolio website showcasing projects with dynamic routing, smooth animations, and integrated contact functionality.',
-
-    challenge: {
-      title: 'The Challenge',
-      description: 'Create a striking personal portfolio that stands out with unique design while maintaining excellent performance, user experience, and easy content management.',
-      points: [
-        'Design a bold, editorial-style interface that captures attention and reflects personal brand',
-        'Implement smooth animations and transitions without compromising performance',
-        'Create dynamic project case studies with detailed information architecture',
-        'Build a data-driven structure for easy project updates and content management',
-        'Integrate contact functionality with form validation and email service',
-        'Ensure responsive design across all devices with consistent visual impact'
-      ]
-    },
-
-    solution: {
-      title: 'The Solution',
-      description: 'Built a modern React application with dynamic routing, centralized project data management, and EmailJS integration. Implemented a black-and-white design system with large typography, staggered animations, and asymmetric layouts for visual impact.',
-      approach: [
-        'Used React Router for smooth client-side navigation and dynamic case study pages',
-        'Centralized all project data in a structured JavaScript file for easy updates',
-        'Implemented staggered CSS animations with useEffect hooks for engaging user experience',
-        'Integrated EmailJS for serverless contact form functionality',
-        'Applied mobile-first responsive design with Tailwind CSS',
-        'Created reusable component architecture for maintainability'
-      ]
-    },
-
-    technologies: [
-      { name: 'React 19', category: 'Frontend' },
-      { name: 'React Router DOM', category: 'Routing' },
-      { name: 'Tailwind CSS 4', category: 'Styling' },
-      { name: 'Vite', category: 'Build Tool' },
-      { name: 'EmailJS', category: 'Contact Forms' },
-      { name: 'JavaScript ES6+', category: 'Language' }
-    ],
-
-    features: [
-      {
-        title: 'Dynamic Project Case Studies',
-        description: 'Individual pages for each project with challenge, solution, technologies, features, and results.'
-      },
-      {
-        title: 'Bold Editorial Design',
-        description: 'Black and white color scheme with large typography and asymmetric masonry grid layouts.'
-      },
-      {
-        title: 'Smooth Animations',
-        description: 'Staggered fade-in effects, hover transitions, and scroll-based interactions for engaging UX.'
-      },
-      {
-        title: 'Contact Form Integration',
-        description: 'Working contact form with EmailJS integration, validation, and success/error states.'
-      },
-      {
-        title: 'Responsive Architecture',
-        description: 'Mobile-first design ensuring perfect display on desktop, tablet, and mobile devices.'
-      },
-      {
-        title: 'Data-Driven Content',
-        description: 'Centralized project data structure with helper functions for easy content management.'
-      }
-    ],
-
-    results: {
-      metrics: [
-        { value: '100%', label: 'Lighthouse Performance' },
-        { value: '<2s', label: 'Page Load Time' },
-        { value: '6', label: 'Portfolio Projects' },
-        { value: '4', label: 'Main Sections' }
-      ],
-      outcomes: [
-        'Created a unique, memorable portfolio with bold editorial design that stands out',
-        'Achieved excellent performance scores with optimized animations and lazy loading',
-        'Successfully integrated EmailJS for serverless contact form functionality',
-        'Built modular, maintainable component architecture for future updates',
-        'Implemented smooth routing with React Router for seamless navigation',
-        'Established strong personal brand through consistent design language'
-      ]
-    },
-
-    images: [
-      { url: '/assets/potfolio/portfolio-hero.webp', caption: 'Hero section with bold typography and animation' },
-      { url: '/assets/potfolio/project-section.webp', caption: 'Projects grid with asymmetric masonry layout' },
-      { url: '/assets/potfolio/case-study.webp', caption: 'Detailed case study page with project breakdown' }
-    ],
-
-    links: {
-      live: '/',
-      github: 'https://github.com/Dev-5804/'
-    },
-
     nextProject: 'admin-dashboard'
   },
+
+  // {
+  //   id: 'portfolio-website',
+  //   title: 'Personal Portfolio',
+  //   subtitle: 'Modern Portfolio Website',
+  //   category: 'Full Stack',
+  //   year: '2025',
+  //   duration: '1 month',
+  //   role: 'Full Stack Developer',
+
+  //   heroImage: '/assets/potfolio/portfolio-hero.webp',
+  //   overview: 'Designed and developed a bold, minimalist portfolio website showcasing projects with dynamic routing, smooth animations, and integrated contact functionality.',
+
+  //   challenge: {
+  //     title: 'The Challenge',
+  //     description: 'Create a striking personal portfolio that stands out with unique design while maintaining excellent performance, user experience, and easy content management.',
+  //     points: [
+  //       'Design a bold, editorial-style interface that captures attention and reflects personal brand',
+  //       'Implement smooth animations and transitions without compromising performance',
+  //       'Create dynamic project case studies with detailed information architecture',
+  //       'Build a data-driven structure for easy project updates and content management',
+  //       'Integrate contact functionality with form validation and email service',
+  //       'Ensure responsive design across all devices with consistent visual impact'
+  //     ]
+  //   },
+
+  //   solution: {
+  //     title: 'The Solution',
+  //     description: 'Built a modern React application with dynamic routing, centralized project data management, and EmailJS integration. Implemented a black-and-white design system with large typography, staggered animations, and asymmetric layouts for visual impact.',
+  //     approach: [
+  //       'Used React Router for smooth client-side navigation and dynamic case study pages',
+  //       'Centralized all project data in a structured JavaScript file for easy updates',
+  //       'Implemented staggered CSS animations with useEffect hooks for engaging user experience',
+  //       'Integrated EmailJS for serverless contact form functionality',
+  //       'Applied mobile-first responsive design with Tailwind CSS',
+  //       'Created reusable component architecture for maintainability'
+  //     ]
+  //   },
+
+  //   technologies: [
+  //     { name: 'React 19', category: 'Frontend' },
+  //     { name: 'React Router DOM', category: 'Routing' },
+  //     { name: 'Tailwind CSS 4', category: 'Styling' },
+  //     { name: 'Vite', category: 'Build Tool' },
+  //     { name: 'EmailJS', category: 'Contact Forms' },
+  //     { name: 'JavaScript ES6+', category: 'Language' }
+  //   ],
+
+  //   features: [
+  //     {
+  //       title: 'Dynamic Project Case Studies',
+  //       description: 'Individual pages for each project with challenge, solution, technologies, features, and results.'
+  //     },
+  //     {
+  //       title: 'Bold Editorial Design',
+  //       description: 'Black and white color scheme with large typography and asymmetric masonry grid layouts.'
+  //     },
+  //     {
+  //       title: 'Smooth Animations',
+  //       description: 'Staggered fade-in effects, hover transitions, and scroll-based interactions for engaging UX.'
+  //     },
+  //     {
+  //       title: 'Contact Form Integration',
+  //       description: 'Working contact form with EmailJS integration, validation, and success/error states.'
+  //     },
+  //     {
+  //       title: 'Responsive Architecture',
+  //       description: 'Mobile-first design ensuring perfect display on desktop, tablet, and mobile devices.'
+  //     },
+  //     {
+  //       title: 'Data-Driven Content',
+  //       description: 'Centralized project data structure with helper functions for easy content management.'
+  //     }
+  //   ],
+
+  //   results: {
+  //     metrics: [
+  //       { value: '100%', label: 'Lighthouse Performance' },
+  //       { value: '<2s', label: 'Page Load Time' },
+  //       { value: '6', label: 'Portfolio Projects' },
+  //       { value: '4', label: 'Main Sections' }
+  //     ],
+  //     outcomes: [
+  //       'Created a unique, memorable portfolio with bold editorial design that stands out',
+  //       'Achieved excellent performance scores with optimized animations and lazy loading',
+  //       'Successfully integrated EmailJS for serverless contact form functionality',
+  //       'Built modular, maintainable component architecture for future updates',
+  //       'Implemented smooth routing with React Router for seamless navigation',
+  //       'Established strong personal brand through consistent design language'
+  //     ]
+  //   },
+
+  //   images: [
+  //     { url: '/assets/potfolio/portfolio-hero.webp', caption: 'Hero section with bold typography and animation' },
+  //     { url: '/assets/potfolio/project-section.webp', caption: 'Projects grid with asymmetric masonry layout' },
+  //     { url: '/assets/potfolio/case-study.webp', caption: 'Detailed case study page with project breakdown' }
+  //   ],
+
+  //   links: {
+  //     live: '/',
+  //     github: 'https://github.com/Dev-5804/'
+  //   },
+
+  //   nextProject: 'admin-dashboard'
+  // },
 
   {
     id: 'admin-dashboard',
