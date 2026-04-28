@@ -1,6 +1,216 @@
 // Project Data - All project details for portfolio
 export const projectsData = [
   {
+    id: 'itam',
+    title: 'ITAM (Internal Tools Access Manager)',
+    subtitle: 'Multi-tenant SaaS Application',
+    category: 'Full Stack',
+    year: '2026',
+    duration: 'Full Stack Development',
+    role: 'Full Stack Developer',
+
+    heroImage: '/assets/ITAM/Audit_Logs.webp',
+    overview: 'A multi-tenant SaaS application built with Next.js 14 and Supabase that centralises internal tool access management with structured approval workflows, role-based access control, and comprehensive audit logging.',
+
+    challenge: {
+      title: 'The Challenge',
+      description: 'Organizations often struggle with managing access to internal tools securely, leading to scattered access requests, lack of proper oversight, and missing compliance tracking.',
+      points: [
+        'Centralize internal tool access management for multiple organizations effectively',
+        'Enforce strict tenant isolation to prevent data leaks across organizations',
+        'Implement a structured, role-based approval workflow for access requests',
+        'Ensure tamper-proof and guaranteed audit logging for strict compliance',
+        'Provide a secure, performant, and reliable application architecture'
+      ]
+    },
+
+    solution: {
+      title: 'The Solution',
+      description: 'Developed a comprehensive SaaS platform using Next.js 14 and Supabase, implementing deep security measures including PostgreSQL Row Level Security for tenant isolation and atomic transactions for reliable audit trails.',
+      approach: [
+        'Built tenant isolation at the database level using RLS policies scoped to custom JWT claims',
+        'Implemented a role-based system (Owner, Admin, Member) for access request workflows',
+        'Created atomic Postgres transactions to write append-only audit logs for all state-changing actions',
+        'Integrated Nodemailer for invitation-based onboarding and event-driven email notifications',
+        'Secured the application with JWT-based RBAC, Zod validation, rate limiting, and HTTP security headers'
+      ]
+    },
+
+    technologies: [
+      { name: 'Next.js 14', category: 'Frontend/API' },
+      { name: 'Tailwind CSS', category: 'Frontend' },
+      { name: 'Shadcs/UI', category: 'Frontend' },
+      { name: 'Supabase', category: 'Backend/Auth' },
+      { name: 'PostgreSQL', category: 'Database' },
+      { name: 'Nodemailer', category: 'Email' },
+      { name: 'Zod', category: 'Validation' },
+      { name: 'Vercel', category: 'Deployment' }
+    ],
+
+    features: [
+      {
+        title: 'Structured Approval Workflow',
+        description: 'Members can request access to tools, while admins review, approve, reject, or revoke requests.'
+      },
+      {
+        title: 'Strict Tenant Isolation',
+        description: 'PostgreSQL Row Level Security policies scoped to custom JWT claims guarantee complete data separation.'
+      },
+      {
+        title: 'Tamper-Proof Audit Logs',
+        description: 'State-changing actions are recorded in an append-only log using robust atomic transactions.'
+      },
+      {
+        title: 'Role-Based Access Control',
+        description: 'Three distinct roles (Owner, Admin, Member) manage permissions and actions across the platform.'
+      },
+      {
+        title: 'Robust Security Setup',
+        description: 'Includes JWT-based RBAC, strict Zod validation, rate limiting, and comprehensive HTTP security headers.'
+      }
+    ],
+
+    results: {
+      metrics: [
+        { value: 'Secure', label: 'Tenant Isolation' },
+        { value: 'Atomic', label: 'Audit Logging' },
+        { value: '3', label: 'User Roles' },
+        { value: '100%', label: 'Compliance Tracking' }
+      ],
+      outcomes: [
+        'Streamlined internal tool access management and structured approval workflows',
+        'Eliminated cross-tenant data leak risks via database-level policy enforcement',
+        'Provided reliable compliance trails through guaranteed, automatic audit logging',
+        'Delivered a highly secure, modern SaaS platform with robust enterprise-grade features'
+      ]
+    },
+
+    images: [
+      {
+        url: '/assets/ITAM/RequestsPage.webp',
+        caption: 'Access requests management interface'
+      },
+      {
+        url: '/assets/ITAM/ToolsPage.webp',
+        caption: 'Internal tools directory'
+      },
+      {
+        url: '/assets/ITAM/TeamsPage.webp',
+        caption: 'Team management and role assignment'
+      }
+    ],
+
+    links: {
+      live: '',
+      github: ''
+    },
+
+    nextProject: 'repolens'
+},
+{
+  id: 'repolens',
+  title: 'Repolens',
+  subtitle: 'GitHub Repository Analytics Dashboard',
+  category: 'Full Stack / API',
+  year: '2026',
+  duration: 'Development',
+  role: 'Full Stack Developer',
+
+  heroImage: '/assets/RepoLens/overviewPage.webp',
+  overview: 'A web-based tool that analyzes public GitHub repositories and presents a structured dashboard summarizing project health, metadata, and code composition.',
+
+  challenge: {
+    title: 'The Challenge',
+    description: 'Build a fast, zero-setup analysis tool providing repository health insights without complex or slow deep static code environments.',
+    points: [
+      'Aggregate repository metadata, commit activity, and contributor data',
+      'Handle GitHub API rate limits gracefully with robust caching strategies',
+      'Build an API-first backend capable of rapid data retrieval and reliable processing',
+      'Surface repository insights, maintainability flags, and secret detection patterns efficiently'
+    ]
+  },
+
+  solution: {
+    title: 'The Solution',
+    description: 'Developed a high-performance Node.js/Fastify API to aggregate GitHub REST and GraphQL data, cached via Redis, and visualized through a modern React dashboard.',
+    approach: [
+      'Utilized a standard web stack with React, Chart.js, and React Query for the UI',
+      'Built a low-overhead Fastify API layer over traditional Express for better performance',
+      'Implemented advanced Upstash Redis caching to minimize redundant GitHub API calls',
+      'Used Supabase for data access, authentication, and persistent PostgreSQL storage',
+      'Followed an API-first approach, stubbing rate-limits and focusing on robust metric collection'
+    ]
+  },
+
+  technologies: [
+    { name: 'React', category: 'Frontend' },
+    { name: 'Fastify', category: 'Backend/API' },
+    { name: 'Supabase', category: 'Database/Auth' },
+    { name: 'Redis', category: 'Caching' },
+    { name: 'React Query', category: 'Data Fetching' },
+    { name: 'Chart.js', category: 'Visualization' }
+  ],
+
+  features: [
+    {
+      title: 'Repository Health Dashboard',
+      description: 'Summarizes key project health indicators, commit history, and quality signals in an intuitive UI.'
+    },
+    {
+      title: 'API-Driven Analysis',
+      description: 'Aggregates metadata seamlessly from both GitHub REST and GraphQL APIs.'
+    },
+    {
+      title: 'Built-in Caching',
+      description: 'Employs Redis (Upstash) to cache API results temporarily, enhancing speed and respecting rate limits.'
+    },
+    {
+      title: 'Secret & Pattern Detection',
+      description: 'Includes extended secret detection patterns beyond standard defaults.'
+    }
+  ],
+
+  results: {
+    metrics: [
+      { value: 'Fastify', label: 'API Backend' },
+      { value: 'Redis', label: 'Caching Layer' },
+      { value: 'GraphQL', label: 'Data Source' },
+      { value: 'Zero', label: 'Setup Time' }
+    ],
+    outcomes: [
+      'Delivered performant API-powered repository analysis without deep static processing overhead',
+      'Ensured stable metrics delivery by caching extensive GitHub API calls',
+      'Implemented maintainable, componentized charting dashboard with React Query'
+    ]
+  },
+
+  images: [
+    {
+      url: '/assets/RepoLens/overviewPage.webp',
+      caption: 'Repository overview with composite score and activity trend'
+    },
+    {
+      url: '/assets/RepoLens/activityPage.webp',
+      caption: 'Detailed commit activity trend over time'
+    },
+    {
+      url: '/assets/RepoLens/scorePage.webp',
+      caption: 'Repository health score radar chart and detailed breakdown'
+    },
+    {
+      url: '/assets/RepoLens/codeInsightsPage.webp',
+      caption: 'Language composition and repository standards analysis'
+    }
+  ],
+
+  links: {
+    live: '',
+    github: ''
+  },
+
+  nextProject: 'modedge-interior'
+  },
+  {
     id: 'modedge-interior',
     title: 'ModEdge Interior',
     subtitle: 'Interior Design Portfolio',
@@ -314,125 +524,125 @@ export const projectsData = [
   },
 
   {
-  id: 'pricing-page',
-  title: 'Pricing Page Template',
-  subtitle: 'Frontend Web Application',
-  category: 'Frontend',
-  year: '2025',
-  duration: '2 weeks',
-  role: 'Frontend Developer',
+    id: 'pricing-page',
+    title: 'Pricing Page Template',
+    subtitle: 'Frontend Web Application',
+    category: 'Frontend',
+    year: '2025',
+    duration: '2 weeks',
+    role: 'Frontend Developer',
 
-  // Hero
-  heroImage: '/assets/PricingPage/SC1.webp',
-  overview:
-    'Created a responsive pricing page template featuring selectable plans, billing mode switching, add-on options, real-time pricing updates, and a demo checkout form using Next.js, TypeScript, and Tailwind CSS.',
+    // Hero
+    heroImage: '/assets/PricingPage/SC1.webp',
+    overview:
+      'Created a responsive pricing page template featuring selectable plans, billing mode switching, add-on options, real-time pricing updates, and a demo checkout form using Next.js, TypeScript, and Tailwind CSS.',
 
-  // Challenge
-  challenge: {
-    title: 'The Challenge',
-    description:
-      'Build an interactive pricing flow demonstrating non-trivial UI logic, including plan selection, billing mode changes, and add-on handling, with calculated totals updating in real time.',
-    points: [
-      'Implement a monthly/yearly billing toggle affecting all prices.',
-      'Support plan selection with clear visual state and pricing impact.',
-      'Handle multiple add-ons with dynamic total calculation.',
-      'Design a summary panel to reflect all selected items.',
-      'Create a demo checkout form for user confirmation.'
-    ]
-  },
-
-  // Solution
-  solution: {
-    title: 'The Solution',
-    description:
-      'A modular pricing interface was developed using reusable UI components and state logic to calculate updated totals. The template provides an example of a common SaaS pricing flow, including billing modes, plan tiers, add-ons, and a confirmation step.',
-    approach: [
-      'State-driven plan and add-on toggles.',
-      'Dynamic summary showing current selections and totals.',
-      'Client-side form validation and confirmation workflow.',
-      'Clear component separation for pricing, summary, and checkout.',
-      'Responsive layout for tablet and desktop.'
-    ]
-  },
-
-  // Technologies
-  technologies: [
-    { name: 'Next.js', category: 'Frontend' },
-    { name: 'TypeScript', category: 'Language' },
-    { name: 'Tailwind CSS', category: 'Styling' },
-    { name: 'Vercel', category: 'Deployment' }
-  ],
-
-  // Features
-  features: [
-    {
-      title: 'Plan Selection',
+    // Challenge
+    challenge: {
+      title: 'The Challenge',
       description:
-        'Supports multiple plan tiers with active selection state and corresponding pricing.'
+        'Build an interactive pricing flow demonstrating non-trivial UI logic, including plan selection, billing mode changes, and add-on handling, with calculated totals updating in real time.',
+      points: [
+        'Implement a monthly/yearly billing toggle affecting all prices.',
+        'Support plan selection with clear visual state and pricing impact.',
+        'Handle multiple add-ons with dynamic total calculation.',
+        'Design a summary panel to reflect all selected items.',
+        'Create a demo checkout form for user confirmation.'
+      ]
     },
-    {
-      title: 'Monthly / Yearly Billing',
-      description:
-        'Toggle updates all pricing values in real time and adjusts summary totals.'
-    },
-    {
-      title: 'Add-on Options',
-      description:
-        'Selectable add-ons modify the total cost and appear in the summary panel.'
-    },
-    {
-      title: 'Dynamic Summary Panel',
-      description:
-        'Reflects current plan, billing mode, addons, and updated total pricing.'
-    },
-    {
-      title: 'Demo Checkout Form',
-      description:
-        'Confirms selection and validates form input for a complete demo flow.'
-    }
-  ],
 
-  // Results
-  results: {
-    metrics: [
-      { value: 'Selectable', label: 'Plan Tiers' },
-      { value: 'Dynamic', label: 'Billing Mode' },
-      { value: 'Responsive', label: 'Layout' },
-      { value: 'State-driven', label: 'Pricing Logic' }
+    // Solution
+    solution: {
+      title: 'The Solution',
+      description:
+        'A modular pricing interface was developed using reusable UI components and state logic to calculate updated totals. The template provides an example of a common SaaS pricing flow, including billing modes, plan tiers, add-ons, and a confirmation step.',
+      approach: [
+        'State-driven plan and add-on toggles.',
+        'Dynamic summary showing current selections and totals.',
+        'Client-side form validation and confirmation workflow.',
+        'Clear component separation for pricing, summary, and checkout.',
+        'Responsive layout for tablet and desktop.'
+      ]
+    },
+
+    // Technologies
+    technologies: [
+      { name: 'Next.js', category: 'Frontend' },
+      { name: 'TypeScript', category: 'Language' },
+      { name: 'Tailwind CSS', category: 'Styling' },
+      { name: 'Vercel', category: 'Deployment' }
     ],
-    outcomes: [
-      'Demonstrates ability to build interactive UI with real-time calculations.',
-      'Shows proficiency in common SaaS pricing flows and UI logic.',
-      'Adds a focused, logic-heavy project to the portfolio.',
-      'Includes deploy-ready structure and modular components.'
-    ]
-  },
 
-  // Images
-  images: [
-    {
-      url: '/assets/PricingPage/SC2.webp',
-      caption: 'Details page'
+    // Features
+    features: [
+      {
+        title: 'Plan Selection',
+        description:
+          'Supports multiple plan tiers with active selection state and corresponding pricing.'
+      },
+      {
+        title: 'Monthly / Yearly Billing',
+        description:
+          'Toggle updates all pricing values in real time and adjusts summary totals.'
+      },
+      {
+        title: 'Add-on Options',
+        description:
+          'Selectable add-ons modify the total cost and appear in the summary panel.'
+      },
+      {
+        title: 'Dynamic Summary Panel',
+        description:
+          'Reflects current plan, billing mode, addons, and updated total pricing.'
+      },
+      {
+        title: 'Demo Checkout Form',
+        description:
+          'Confirms selection and validates form input for a complete demo flow.'
+      }
+    ],
+
+    // Results
+    results: {
+      metrics: [
+        { value: 'Selectable', label: 'Plan Tiers' },
+        { value: 'Dynamic', label: 'Billing Mode' },
+        { value: 'Responsive', label: 'Layout' },
+        { value: 'State-driven', label: 'Pricing Logic' }
+      ],
+      outcomes: [
+        'Demonstrates ability to build interactive UI with real-time calculations.',
+        'Shows proficiency in common SaaS pricing flows and UI logic.',
+        'Adds a focused, logic-heavy project to the portfolio.',
+        'Includes deploy-ready structure and modular components.'
+      ]
     },
-    {
-      url: '/assets/PricingPage/SC3.webp',
-      caption: 'Congration screen after checkout'
+
+    // Images
+    images: [
+      {
+        url: '/assets/PricingPage/SC2.webp',
+        caption: 'Details page'
+      },
+      {
+        url: '/assets/PricingPage/SC3.webp',
+        caption: 'Congration screen after checkout'
+      },
+      {
+        url: '/assets/PricingPage/SC4.webp',
+        caption: 'Yearly plan toggle'
+      }
+    ],
+
+    // Links
+    links: {
+      live: 'https://pricing-page-template.vercel.app/',
+      github: 'https://github.com/Dev-5804/pricing-page-template'
     },
-    {
-      url: '/assets/PricingPage/SC4.webp',
-      caption: 'Yearly plan toggle'
-    }
-  ],
 
-  // Links
-  links: {
-    live: 'https://pricing-page-template.vercel.app/',
-    github: 'https://github.com/Dev-5804/pricing-page-template'
-  },
-
-  // Next
-  nextProject: 'modedge-interior'
-}
+    // Next
+    nextProject: 'itam'
+  }
 
 ];
 
