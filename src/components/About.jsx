@@ -167,154 +167,76 @@ const About = () => {
             </div>
           </div>
 
-          {/* Interactive Tech Showcase */}
+          {/* Interactive Tech Showcase - Brutalist Grid */}
           <div className="relative">
-            {/* Main Display Area */}
-            <div className="grid lg:grid-cols-12 gap-8 items-start">
-              {/* Left - Large Featured Stack */}
-              <div className="lg:col-span-7 space-y-4">
-                {/* Primary Tech Row */}
-                <div className="flex flex-wrap gap-4">
-                  {['React', 'Next.js', 'TypeScript'].map((tech, index) => (
-                    <div 
-                      key={tech}
-                      className="group relative flex-1 min-w-[140px] bg-black text-white p-6 md:p-8 cursor-default overflow-hidden"
-                    >
-                      {/* Animated Corner */}
-                      <div className="absolute top-0 left-0 w-0 h-0 border-l-[30px] border-t-[30px] border-l-white/20 border-t-transparent transform -rotate-45 origin-top-left"></div>
-                      
-                      {/* Number */}
-                      <span className="absolute top-3 right-4 text-[80px] md:text-[100px] font-black opacity-10 leading-none">
-                        {String(index + 1).padStart(2, '0')}
-                      </span>
-                      
-                      <div className="relative z-10">
-                        <h3 className="text-2xl md:text-3xl font-black mb-2 group-hover:translate-x-1 transition-transform duration-300">
-                          {tech}
-                        </h3>
-                        <p className="text-xs md:text-sm opacity-60 uppercase tracking-wider">
-                          {tech === 'React' && 'UI Library'}
-                          {tech === 'Next.js' && 'Framework'}
-                          {tech === 'TypeScript' && 'Language'}
-                        </p>
-                      </div>
-
-                      {/* Bottom accent line */}
-                      <div className="absolute bottom-0 left-0 w-full h-1 bg-white/30 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Secondary Tech - Horizontal Marquee Style */}
-                <div className="border-2 border-black bg-white p-6 md:p-8">
-                  <div className="flex items-center justify-between flex-wrap gap-6">
-                    {['JavaScript', 'Node.js'].map((tech, index) => (
-                      <div key={tech} className="group flex items-center gap-4">
-                        <span className="text-5xl md:text-6xl font-black opacity-10">
-                          {String(index + 4).padStart(2, '0')}
-                        </span>
-                        <div>
-                          <h3 className="text-xl md:text-2xl font-black group-hover:translate-x-1 transition-transform duration-300">
-                            {tech}
-                          </h3>
-                          <p className="text-xs opacity-50 uppercase tracking-wider">
-                            {tech === 'JavaScript' && 'Core Language'}
-                            {tech === 'Node.js' && 'Runtime'}
-                          </p>
-                        </div>
-                      </div>
-                    ))}
-                    {/* Decorative Plus Signs */}
-                    <div className="hidden md:flex items-center gap-2 opacity-20">
-                      <span className="text-4xl font-black">+</span>
-                      <span className="text-4xl font-black">+</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right - Stacked Cards */}
-              <div className="lg:col-span-5 space-y-4">
-                {/* Styling Card */}
-                <div className="group relative border-2 border-black p-6 md:p-8 bg-white hover:bg-black hover:text-white transition-all duration-500 cursor-default overflow-hidden">
-                  <div className="absolute -right-8 -bottom-8 w-32 h-32 border-2 border-current opacity-10 rounded-full group-hover:scale-150 transition-transform duration-700"></div>
-                  
-                  <div className="flex items-start justify-between mb-4">
-                    <span className="text-xs uppercase tracking-[0.2em] opacity-50 border border-current px-3 py-1">
-                      Styling
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t-2 border-l-2 border-black mb-16">
+              {[
+                { id: '01', name: 'React', type: 'UI Library', desc: 'Building dynamic user interfaces with modern paradigms.' },
+                { id: '02', name: 'Next.js', type: 'Framework', desc: 'Production-grade applications with robust routing.' },
+                { id: '03', name: 'TypeScript', type: 'Language', desc: 'Static typing for scalable, bug-free applications.' },
+                { id: '04', name: 'JavaScript', type: 'Core', desc: 'The fundamental logic powering web interactions.' },
+                { id: '05', name: 'Tailwind CSS', type: 'Styling', desc: 'Utility-first styling for rapid, consistent designs.' },
+                { id: '06', name: 'Node.js', type: 'Backend', desc: 'Server-side runtime for robust backends.' },
+                { id: '07', name: 'Supabase', type: 'Database', desc: 'Open-source Firebase alternative with PostgreSQL.' },
+              ].map((tech) => (
+                <div key={tech.id} className="group relative border-b-2 border-r-2 border-black p-8 bg-white hover:bg-black hover:text-white transition-all duration-300">
+                  <div className="flex justify-between items-start mb-12">
+                    <span className="text-xs font-bold uppercase tracking-widest px-2 py-1 border-2 border-black group-hover:border-white transition-colors duration-300">
+                      {tech.type}
                     </span>
-                    <span className="text-4xl font-black opacity-10">06</span>
+                    <span className="text-3xl font-black opacity-20">{tech.id}</span>
                   </div>
-                  
-                  <h3 className="text-3xl md:text-4xl font-black mb-3 relative z-10">
-                    Tailwind CSS
-                  </h3>
-                  <p className="text-sm opacity-60 leading-relaxed relative z-10">
-                    Utility-first framework for rapid, consistent UI development without leaving HTML.
+                  <h3 className="text-2xl font-black mb-3">{tech.name}</h3>
+                  <p className="text-sm opacity-70 leading-relaxed font-medium">
+                    {tech.desc}
                   </p>
-                  
-                  {/* Decorative dots */}
-                  <div className="absolute bottom-4 right-4 flex gap-1 opacity-30">
-                    <div className="w-2 h-2 bg-current rounded-full"></div>
-                    <div className="w-2 h-2 bg-current rounded-full"></div>
-                    <div className="w-2 h-2 bg-current rounded-full"></div>
+                  {/* Hover indicator */}
+                  <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transform translate-x-[-10px] group-hover:translate-x-0 transition-all duration-300">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12"></line>
+                      <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
                   </div>
                 </div>
-
-                {/* Backend Card */}
-                <div className="group relative border-2 border-black p-6 md:p-8 bg-white hover:bg-black hover:text-white transition-all duration-500 cursor-default overflow-hidden">
-                  <div className="absolute -left-4 -top-4 w-24 h-24 border border-current opacity-10 transform rotate-45 group-hover:rotate-90 transition-transform duration-700"></div>
-                  
-                  <div className="flex items-start justify-between mb-4">
-                    <span className="text-xs uppercase tracking-[0.2em] opacity-50 border border-current px-3 py-1">
-                      Backend
-                    </span>
-                    <span className="text-4xl font-black opacity-10">07</span>
-                  </div>
-                  
-                  <h3 className="text-3xl md:text-4xl font-black mb-3 relative z-10">
-                    Supabase
-                  </h3>
-                  <p className="text-sm opacity-60 leading-relaxed relative z-10">
-                    Open-source backend with real-time database, auth, and serverless functions.
-                  </p>
-                  
-                  {/* Decorative lines */}
-                  <div className="absolute bottom-4 right-4 flex flex-col gap-1 opacity-20">
-                    <div className="w-8 h-[2px] bg-current"></div>
-                    <div className="w-6 h-[2px] bg-current"></div>
-                    <div className="w-4 h-[2px] bg-current"></div>
-                  </div>
-                </div>
+              ))}
+              
+              {/* Decorative 8th Box */}
+              <div className="hidden lg:flex border-b-2 border-r-2 border-black bg-black items-center justify-center p-8 group relative overflow-hidden">
+                <div className="absolute inset-0 opacity-20" style={{
+                  backgroundImage: 'linear-gradient(45deg, white 25%, transparent 25%, transparent 75%, white 75%, white), linear-gradient(45deg, white 25%, transparent 25%, transparent 75%, white 75%, white)',
+                  backgroundSize: '20px 20px',
+                  backgroundPosition: '0 0, 10px 10px'
+                }}></div>
+                <span className="text-white text-6xl font-black relative z-10 group-hover:scale-125 transition-transform duration-500">+++</span>
               </div>
             </div>
 
             {/* Bottom Stats Bar */}
-            <div className="mt-12 pt-12 border-t-2 border-black">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div className="group text-center md:text-left">
-                  <div className="text-4xl md:text-5xl font-black mb-2 group-hover:scale-110 transition-transform duration-300 inline-block">
+            <div className="pt-8 mb-8 border-t-2 border-black/10">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-y-12">
+                <div className="group border-l-4 border-black pl-6 md:pl-8">
+                  <div className="text-4xl md:text-5xl font-black mb-2 group-hover:translate-x-2 transition-transform duration-300 inline-block">
                     7+
                   </div>
-                  <p className="text-sm uppercase tracking-wider opacity-50">Technologies</p>
+                  <p className="text-sm uppercase tracking-wider opacity-60 font-bold">Technologies</p>
                 </div>
-                <div className="group text-center md:text-left">
-                  <div className="text-4xl md:text-5xl font-black mb-2 group-hover:scale-110 transition-transform duration-300 inline-block">
+                <div className="group border-l-4 border-black pl-6 md:pl-8">
+                  <div className="text-4xl md:text-5xl font-black mb-2 group-hover:translate-x-2 transition-transform duration-300 inline-block">
                     3+
                   </div>
-                  <p className="text-sm uppercase tracking-wider opacity-50">Frameworks</p>
+                  <p className="text-sm uppercase tracking-wider opacity-60 font-bold">Frameworks</p>
                 </div>
-                <div className="group text-center md:text-left">
-                  <div className="text-4xl md:text-5xl font-black mb-2 group-hover:scale-110 transition-transform duration-300 inline-block">
+                <div className="group border-l-4 border-black pl-6 md:pl-8">
+                  <div className="text-4xl md:text-5xl font-black mb-2 group-hover:translate-x-2 transition-transform duration-300 inline-block">
                     ∞
                   </div>
-                  <p className="text-sm uppercase tracking-wider opacity-50">Learning</p>
+                  <p className="text-sm uppercase tracking-wider opacity-60 font-bold">Learning</p>
                 </div>
-                <div className="group text-center md:text-left">
-                  <div className="text-4xl md:text-5xl font-black mb-2 group-hover:scale-110 transition-transform duration-300 inline-block">
+                <div className="group border-l-4 border-black pl-6 md:pl-8">
+                  <div className="text-4xl md:text-5xl font-black mb-2 group-hover:translate-x-2 transition-transform duration-300 inline-block">
                     24/7
                   </div>
-                  <p className="text-sm uppercase tracking-wider opacity-50">Passion</p>
+                  <p className="text-sm uppercase tracking-wider opacity-60 font-bold">Passion</p>
                 </div>
               </div>
             </div>
